@@ -10,5 +10,5 @@ class MainPage extends React.Component {
     );
   }
 }
-
+//asdfasdfasdf
 export default MainPage;
