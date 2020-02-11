@@ -14,9 +14,9 @@ const GroupSchema = new Schema({
     type: String,
     required: true
   },
-  owner: {
-    type: String,
-    required: true
+  owner_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   },
   picture_id: {
     type: String,
