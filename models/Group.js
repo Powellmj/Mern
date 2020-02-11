@@ -1,0 +1,31 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const GroupSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  desc: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: String,
+    required: true
+  },
+  owner: {
+    type: String,
+    required: true
+  },
+  picture_id: {
+    type: String,
+    required: false
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+})
+
+module.exports = User = mongoose.model('Group', GroupSchema);
