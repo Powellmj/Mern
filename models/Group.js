@@ -28,4 +28,4 @@ const GroupSchema = new Schema({
   }
 })
 
-module.exports = User = mongoose.model('Group', GroupSchema);
+module.exports = Group = mongoose.model('Group', GroupSchema);
