@@ -7,7 +7,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
     !loggedIn ? (
       <Component {...props} />
     ) : (
-        <Redirect to="/api/groups/index" />
+        <Redirect to="/api/groups" />
       )
   )} />
 );

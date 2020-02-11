@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export const getGroup = id => {
+export const receiveGroup = id => {
   return axios.get(`/api/groups/${id}`)
 };
