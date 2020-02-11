@@ -1,0 +1,80 @@
+.splash-video {
+  height: 460px;
+  overflow: hidden;
+}
+
+.splash-video > video {
+  min-width: 850px;
+  width: 100vw;
+}
+
+.splash-video-filter {
+  position: absolute;
+  display: block;
+  height: 460px;
+  width: 100vw;
+  background-color: rgba(78, 78, 78, 0.192);
+}
+
+.splash-video-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -320px;
+  color: white;
+  font-weight: bold;
+}
+
+.splash-header {
+  font-size: 45px;
+  margin-bottom: 18px;
+}
+
+.splash-body {
+  margin-bottom: 35px;
+  font-size: 20px;
+}
+
+.splash-links {
+  display: flex;
+}
+
+.splash-link {
+  background-color: rgb(226, 59, 81);
+  margin: 10px;
+  padding: 15px 120px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+.splash-demo {
+  background-color: rgb(243, 243, 243);
+  color: rgb(240, 48, 74);
+  border: 1px solid rgb(240, 48, 74);
+  cursor: pointer;
+}
+
+.splash-topic-bar {
+  position: relative;
+  top: -176px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 25px;
+  border-bottom: rgb(224, 224, 224) solid 1px;
+}
+
+.splash-topic {
+  display: inline-block;
+  margin: 0px 10px;
+  background-color: rgb(245, 245, 245);
+  padding: 5px 10px;
+  border: 1px solid rgb(177, 177, 177);
+  border-radius: 5px;
+  color: rgb(104, 104, 104);
+  font-weight: 550;
+  font-size: 14px;
+  cursor: pointer;
+}
