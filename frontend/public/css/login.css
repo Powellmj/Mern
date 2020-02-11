@@ -1,0 +1,57 @@
+.session-container {
+  background-color: rgb(247, 245, 245);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 650px;
+  height: calc(100vh - 85px);
+}
+
+.session-form {
+  display: flex;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid gray;
+  height: auto;
+  width: 400px;
+}
+
+.session-text-input {
+  background-color: rgb(247, 245, 245);
+  width: 350px;
+  margin: 0px 25px 25px;
+  height: 35px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.session-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 25px;
+  color: rgb(56, 56, 56);
+}
+
+.session-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 25px 155px;
+}
+ 
+.session-submit {
+  background-color: rgb(240, 48, 74);
+  margin: 5px 25px 5px;
+  width: 350px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+}
+
+.demo {
+  background-color: rgb(243, 243, 243);
+  color: rgb(240, 48, 74);
+  border: 1px solid rgb(240, 48, 74);
+  margin-bottom: 40px;
+}
