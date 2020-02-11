@@ -9,3 +9,5 @@ const receiveAllGroups = groups => ({
 
 export const requestAllGroups = () => dispatch => APIUtil.fetchAllGroups()
   .then(groups => dispatch(receiveAllGroups(groups)))
+
+  
