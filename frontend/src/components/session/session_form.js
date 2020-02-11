@@ -55,10 +55,10 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="session-container">
+        {this.renderErrors()}
         <div className="session-form">
           <form onSubmit={this.handleSubmit}>
             <div className="session-title">{this.props.formType}</div>
-            {this.renderErrors()}
             { 
             this.props.formType === "Sign up" ?
               <label className="session-label"> Your name
