@@ -40,4 +40,4 @@ const EventSchema = new Schema({
   }
 })
 
-module.exports = Group = mongoose.model('Group', GroupSchema);
+module.exports = Event = mongoose.model('Event', EventSchema);
