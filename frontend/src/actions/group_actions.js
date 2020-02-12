@@ -8,4 +8,4 @@ const receiveAllGroups = groups => ({
 });
 
 export const requestAllGroups = () => dispatch => APIUtil.fetchAllGroups()
-  .then(groups => dispatch(receiveAllGroups(groups)))
+  .then(groups => dispatch(receiveAllGroups(groups.data)))

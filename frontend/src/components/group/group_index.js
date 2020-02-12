@@ -4,24 +4,27 @@ import GroupIndexItem from './group_index_item';
 
 class GroupIndex extends React.Component {
   // may need another dispatch for groups in area?
-  // componentDidMount(){
-  //   this.props.fetchAllGroups()
-  // }
+  componentDidMount(){
+    this.props.fetchAllGroups()
+  }
 
   render(){
     const links = this.props.linkRoutes;
 
     return (
       <div>
-        <div>
-          title
-        </div>
+        <Link to="/events">
+          <div>Find your next simulation</div>
+          <div>2027 events near you</div>
+        </Link>
         <div>
           <input placeholder="Search"></input>
           <i className="fas fa-search"></i>
+          <div>within 5 miles of location</div>
         </div>
         <div>
           {/* displays 12 events in area */}
+          {console.log(this.props.groups)}
           <ul>
             {
               this.props.groups.map((group, i) => (
