@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import EventIndex from '../event/event_index';
+import EventIndexContainer from '../event/event_index_container';
 
 class GroupShow extends React.Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class GroupShow extends React.Component {
               <div className="group-show-desc">{this.state.group.desc}</div>
             </div>
             <div className="group-show-lower-right"></div>
-            <EventIndex />
+            <EventIndexContainer />
           </div>
         </div>
       );

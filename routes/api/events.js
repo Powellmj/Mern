@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Event = require('../../models/Event');
+const Group = require('../../models/Group');
 const passport = require('passport');
 const validateEventInput = require('../../validation/event');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the events route" }));
 
 router.get("/", (req, res) => {
-  Event.findById(req.body)
+  Event.find()
     .then(events => res.json(events))
     .catch(err => res.status(404).json({ noeventsfound: "No events found" }))
 });
@@ -32,7 +33,14 @@ passport.authenticate('jwt', { session: false }),
       end_time: req.body.end_time
     });
 
-    newEvent.save().then(event => res.json(event));
+    
+    newEvent.save().then(event => {
+      Group.findById(event.group_id)
+        .then(group => {
+          group.events.push(event)
+          group.save().then(() => res.json(event))
+        })
+      });
   });
 
 module.exports = router;
