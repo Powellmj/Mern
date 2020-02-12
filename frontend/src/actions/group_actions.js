@@ -16,6 +16,10 @@ export const requestGroup = group => dispatch => (
 
 export const composeGroup = data => dispatch => (
   APIUtil.createGroup(data)
-    .then(group => dispatch(receiveGroup(group)))
+    .then(group => dispatch(receiveGroup(group))))
+
+export const createGroup = group => dispatch => (
+  APIUtil.createGroup(group)
+    .then(group => dispatch(receiveGroup(group.data)))
     .catch(err => console.log(err))
 );
