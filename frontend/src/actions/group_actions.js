@@ -9,7 +9,7 @@ export const receiveGroup = group => ({
 
 export const requestGroup = group => dispatch => (
   APIUtil.fetchGroup(group)
-  .then(dispatch(receiveGroup(group.data)))
+  .then(group => dispatch(receiveGroup(group.data)))
   .catch(err => (console.log(err))
   )
 );
