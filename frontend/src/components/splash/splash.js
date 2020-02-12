@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-class MainPage extends React.Component {
+class Splash extends React.Component {
 
   handleClick() {
     alert("Sorry, no one taught me how to do anything yet!")
@@ -41,4 +41,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default Splash;
