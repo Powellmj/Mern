@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Group.findById('5e432584119bdd8b935f72a3')
+  Group.findById(req.body)
     .then(group => res.json(group))
     .catch(err =>
       res.status(404).json({ nogroupfound: 'No group found with that ID' })

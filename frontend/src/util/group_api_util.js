@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const fetchGroup = id => {
-  return axios.get(`/api/groups/${id}`)
+export const fetchGroup = group => {
+  return axios.get('/api/groups/', group)
 };
 
 export const fetchAllGroups = groups => (

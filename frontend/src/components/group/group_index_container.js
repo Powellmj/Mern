@@ -3,7 +3,7 @@ import { requestAllGroups } from '../../actions/group_actions';
 import GroupIndex from './group_index';
 
 const mapStateToProps = state => ({
-  groups: Object.values(state.groups),
+  groups: Object.values(state.entities.groups),
   linkTitles: ['Teach a class', 'Meet new people', 'Grow your brand', 'Practice a language'],
   linkRoutes: ['teach-a-class', 'meet-new-people', 'grow-your-brand', 'practice-a-language']
 });

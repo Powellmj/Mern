@@ -1,0 +1,110 @@
+.group-show-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.group-show-overview {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: rgb(224, 224, 224) solid 1px;
+}
+
+.group-show-picture {
+  background-color: teal;
+  margin-right: 35px;
+  border-radius: 10px;
+  width: 550px;
+  height: 350px;
+  margin-bottom: 30px;
+}
+
+.group-show-titlebox {
+  width: 400px;
+  height: 350px;
+}
+
+.group-show-title {
+  margin-bottom: 10px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.group-show-info {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.group-show-menus-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.group-show-menus {
+  height: 60px;
+  width: 550px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.group-show-menu-item {
+  color: #2e3e48;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.group-show-join-button-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 400px;
+  height: 60px;
+}
+
+.group-show-join-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: #f65858;
+  width: 140px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.group-show-lower {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgb(247, 245, 245);
+  width: 100%;
+  height: 600px;
+}
+
+.group-show-desc-container {
+  width: 550px;
+}
+
+.group-show-desc-title {
+  margin: 30px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.group-show-desc {
+  font-size: 18px;
+}
+
+.group-show-lower-right {
+  width: 400px;
+}

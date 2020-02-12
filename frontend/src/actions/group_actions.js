@@ -7,14 +7,15 @@ const receiveAllGroups = groups => ({
   groups
 });
 
-export const requestAllGroups = () => dispatch => APIUtil.fetchAllGroups()
-  .then(groups => dispatch(receiveAllGroups(groups.data)))
-export const RECEIVE_GROUP = "RECEIVE_GROUP";
-
 export const receiveGroup = group => ({
   type: RECEIVE_GROUP,
   group
 });
+
+export const requestAllGroups = () => dispatch => APIUtil.fetchAllGroups()
+  .then(groups => dispatch(receiveAllGroups(groups.data)))
+export const RECEIVE_GROUP = "RECEIVE_GROUP";
+
 
 export const requestGroup = group => dispatch => (
   APIUtil.fetchGroup(group)
