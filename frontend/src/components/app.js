@@ -7,6 +7,7 @@ import SignupFormContainer from './session/signup_form_container';
 import splash_container from './splash/splash_container';
 import GroupIndexContainer from './group/group_index_container';
 import GroupFormContainer from './group/group_form_container';
+import GroupShowContainer from './group/group_show_container';
 
 const App = () => (
   <div>
@@ -15,8 +16,9 @@ const App = () => (
       <AuthRoute exact path="/" component={splash_container} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <ProtectedRoute path="/api/groups/id/" component={GroupShowContainer} />
+      <ProtectedRoute exact path="/api/groups/create" component={GroupFormContainer}/>
       <ProtectedRoute exact path="/api/groups" component={GroupIndexContainer} />
-      <ProtectedRoute path="/groups/create" component={GroupFormContainer}/>
     </Switch>
   </div>
 );

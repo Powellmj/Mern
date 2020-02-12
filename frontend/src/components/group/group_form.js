@@ -41,6 +41,12 @@ class GroupForm extends React.Component {
         </div>
         <div className="create-group-form">
           <form onSubmit={this.handleSubmit}> 
+            <label className="group-form-label">Location:
+              <input className="group-form-input" type="text" 
+              value={this.state.location}
+              onChange={this.update('location')}
+              />
+            </label>
             <label className="group-form-label">Group Name:
               <input className="group-form-input" type="text"
               value={this.state.title}
@@ -51,12 +57,6 @@ class GroupForm extends React.Component {
               <input className="group-form-input" type="text" 
               value={this.state.desc}
               onChange={this.update('desc')}
-              />
-            </label>
-            <label className="group-form-label">Location:
-              <input className="group-form-input" type="text" 
-              value={this.state.location}
-              onChange={this.update('location')}
               />
             </label>
             <input className="group-form-submit" type="submit" value="Create"/>

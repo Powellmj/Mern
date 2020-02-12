@@ -1,13 +1,19 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const GroupIndexItem = ({group}) => (
-  <div>
-    <div></div>
-    <div>
-      <div>{group.title}</div>
-      <div>42069 members</div>
+const GroupIndexItem = (props) => {
+  const handleClick = () => {
+    props.history.push({pathname: `/api/groups/id/${props.group._id}`, state: { group: props.group }});
+  }
+
+  return (
+    <div onClick={() => {handleClick(props.group.id)}} className="index-item">
+      <div className="index-item-text">
+        <div className="index-item-title">{props.group.title}</div>
+        <div className="index-item-members">42069 members</div>
+      </div>
     </div>
-  </div>
-);
+  )
+};
 
-export default GroupIndexItem;
+export default withRouter(GroupIndexItem);

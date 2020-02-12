@@ -1,6 +1,9 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Group = require('../../models/Group');
+const passport = require('passport');
+const validateGroupInput = require('../../validation/group');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the groups route" }));
 
@@ -9,20 +12,21 @@ router.get("/", (req, res) => {
     .then(groups => res.json(groups))
     .catch(err => res.status(404).json({ nogroupsfound: "No groups found" }))
 });
-const passport = require('passport');
-const Group = require('../../models/Group');
-const validateGroupInput = require('../../validation/group');
 
-router.get("/test", (req, res) => res.json({ msg: "This is the groups route" }));
+router.get('/:id', (req, res) => {
+  Group.findById(req.body)
+    .then(group => res.json(group))
+    .catch(err =>
+      res.status(404).json({ nogroupfound: 'No group found with that ID' })
+    );
+});
 
 router.post("/", 
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    console.log(req.body)
     const { errors, isValid } = validateGroupInput(req.body);
 
     if (!isValid) {
-      console.log(errors)
       return res.status(400).json(errors);
     }
 

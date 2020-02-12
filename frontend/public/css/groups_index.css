@@ -1,0 +1,170 @@
+.groups-index {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.index-banner {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #00455d;
+  color: white;
+}
+
+.index-banner-header {
+  padding-top: 35px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.index-banner-text {
+  padding-bottom: 60px;
+  font-size: 16px;
+  color: rgb(197, 197, 197);
+}
+
+.index-search-pos {
+  position: sticky;
+  top: 25px;
+}
+
+.index-search {
+  position: relative;
+  top: -25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(27, 27, 27);
+}
+
+.index-search-input {
+  background-color: white;
+  height: 40px;
+  width: 300px;
+  padding-left: 10px;
+  margin: 15px 0px 15px 10px;
+  border-radius: 2px;
+}
+
+.index-distance {
+  margin-right: 400px;
+  font-size: 18px;
+  color: white;
+}
+
+.fa-search {
+  color: gray;
+  font-size: 24px;
+  position: relative;
+  left: -45px;
+}
+
+.index-item-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 940px;
+  height: 880px;
+}
+
+.index-link-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 940px;
+  height: 280px;
+}
+
+.index-links {
+  border-top: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid rgb(224, 224, 224);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0 20px;
+  height: 340px;
+}
+
+.index-item {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  background-color: teal;
+  border: 1px solid gray;
+  border-radius: 3px;
+  width: 300px;
+  height: 200px;
+  margin-top: 20px;
+  color: white;
+}
+
+.index-item-text {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.index-item-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.index-item-members {
+  color: rgb(197, 197, 197);
+  font-size: 14px;
+}
+
+.index-link {
+  height: 120px;
+  width: 220px;
+  background-repeat: no-repeat;
+  background-size: 230px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.index-link-0 {
+  background-image: url(https://www.meetup.com/img/1/motivation/motivation_green.png);
+}
+
+.index-link-1 {
+  background-image: url(https://www.meetup.com/img/1/motivation/motivation_yellow.png);
+}
+
+.index-link-2 {
+  background-image: url(https://www.meetup.com/img/1/motivation/motivation_red.png);
+}
+
+.index-link-3 {
+  background-image: url(https://www.meetup.com/img/1/motivation/motivation_blue.png);
+}
+
+.index-links-header {
+  margin-top: 60px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.index-links-text {
+  font-size: 16px;
+  color: gray;
+}
+
+.index-link-title {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.index-link-learn {
+  color: orange;
+  font-weight: bold;
+}
