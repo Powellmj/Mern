@@ -1,6 +1,4 @@
-import {
-  RECEIVE_GROUP
-} from '../actions/group_actions';
+import { RECEIVE_GROUP, RECEIVE_ALL_GROUPS } from '../actions/group_actions';
 
 const initialState = {};
 
@@ -9,7 +7,9 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case RECEIVE_GROUP:
       return Object.assign({}, state, action.group);
+    case RECEIVE_ALL_GROUPS:
+      return Object.assign({}, state, action.groups);
     default:
       return state;
-  }
+    }
 }
