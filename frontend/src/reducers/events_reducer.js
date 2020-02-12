@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_EVENTS } from '../actions/event_actions';
+import { RECEIVE_ALL_EVENTS, RECEIVE_EVENT } from '../actions/event_actions';
 
 const initialState = {};
 
@@ -7,6 +7,8 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case RECEIVE_ALL_EVENTS:
       return Object.assign({}, state, action.events);
+    case RECEIVE_EVENT:
+      return Object.assign({}, state, action.event)
     default:
       return state;
   }
