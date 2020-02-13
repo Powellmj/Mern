@@ -6,7 +6,7 @@ class GroupShow extends React.Component {
 
   componentDidMount() {
     console.log((this.props.location.pathname).replace(this.props.match.path, ''))
-    // this.props.requestGroup((this.props.location.pathname).replace(this.props.match.path, ''))
+    this.props.requestGroup((this.props.location.pathname).replace(this.props.match.path, ''))
   }
 
   render() {
