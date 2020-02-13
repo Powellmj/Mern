@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 const GroupIndexItem = (props) => {
   const handleClick = () => {
-    props.history.push({pathname: `/groups/id/${props.group._id}`, state: { group: props.group }});
+    props.history.push({pathname: `/groups/${props.group._id}`, state: { group: props.group }});
   }
 
   return (
