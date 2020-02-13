@@ -18,7 +18,7 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="navbar-right">
-          <Link className="navbar-group" to={'/api/groups/create'}>Start a new group</Link>
+          <Link className="navbar-group" to={'/groups/create'}>Start a new group</Link>
           <button className="navbar-link" onClick={this.logoutUser}>Logout</button>
         </div>
       );

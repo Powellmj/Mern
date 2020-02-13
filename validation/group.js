@@ -7,7 +7,8 @@ module.exports = function validateGroupInput(data) {
   data.title = validText(data.title) ? data.title : '';
   data.desc = validText(data.desc) ? data.desc : '';
   data.location = validText(data.location) ? data.location : '';
-  data.owner = validText(data.owner_id) ? data.owner_id : '';
+  data.owner_id = validText(data.owner_id) ? data.owner_id : '';
+  data.organizer = validText(data.organizer) ? data.organizer : '';
 
   if (Validator.isEmpty(data.title)) {
     errors.title = 'Title field is required';
@@ -23,6 +24,10 @@ module.exports = function validateGroupInput(data) {
 
   if (Validator.isEmpty(data.owner_id)) {
     errors.owner_id = 'Owner field is required';
+  }
+
+  if (Validator.isEmpty(data.organizer)) {
+    errors.organizer = 'Organizer field is required';
   }
 
   return {

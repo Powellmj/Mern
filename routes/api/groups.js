@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Group.findById(req.body)
+  Group.findById((req.params.id).slice(1))
     .then(group => res.json(group))
     .catch(err =>
       res.status(404).json({ nogroupfound: 'No group found with that ID' })
@@ -31,13 +31,15 @@ router.post("/",
     }
 
     const newGroup = new Group({
-      title: req.body.title,
-      desc: req.body.desc,
-      location: req.body.location,
-      owner_id: req.body.owner_id
+        title: req.body.title,
+        desc: req.body.desc,
+        location: req.body.location,
+        owner_id: req.body.owner_id,
+        organizer: req.body.organizer,
     });
 
     newGroup.save().then(group => res.json(group));
+    return res
   }
 );
 
