@@ -28,7 +28,6 @@ class GroupIndex extends React.Component {
         </div>
         <div>
           {/* displays 12 events in area */}
-          {console.log(this.props.groups)}
           <ul className="index-item-list">
             {
               this.props.groups.map((group, i) => {
