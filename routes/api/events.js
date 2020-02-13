@@ -8,13 +8,13 @@ const validateEventInput = require('../../validation/event');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the events route" }));
 
-router.get("/", (req, res) => {
+router.get("/group/:group_id", (req, res) => {
   Event.find()
     .then(events => res.json(events))
     .catch(err => res.status(404).json({ noeventsfound: "No events found" }))
 });
 
-router.post("/create",
+router.post("/",
 passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateEventInput(req.body);
@@ -35,7 +35,7 @@ passport.authenticate('jwt', { session: false }),
 
     
     newEvent.save().then(event => {
-      Group.findById(event.group_id)
+      Group.findById({ group: req.params.group_id })
         .then(group => {
           group.events.push(event)
           group.save().then(() => res.json(event))
