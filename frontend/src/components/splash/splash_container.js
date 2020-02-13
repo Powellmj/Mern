@@ -3,6 +3,7 @@ import { login } from '../../actions/session_actions';
 import Splash from './splash';
 
 const mapStateToProps = () => {
+  return {}
 };
 
 const mapDispatchToProps = (dispatch) => {
