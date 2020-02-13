@@ -8,6 +8,7 @@ import splash_container from './splash/splash_container';
 import GroupIndexContainer from './group/group_index_container';
 import GroupFormContainer from './group/group_form_container';
 import GroupShowContainer from './group/group_show_container';
+import EventFormContainer from './event/event_form_container';
 
 const App = () => (
   <div>
@@ -19,6 +20,7 @@ const App = () => (
       <ProtectedRoute path="/groups/id/" component={GroupShowContainer} />
       <ProtectedRoute exact path="/groups/create" component={GroupFormContainer}/>
       <ProtectedRoute exact path="/groups" component={GroupIndexContainer} />
+      <ProtectedRoute exact path="/events/create" component={EventFormContainer} />
     </Switch>
   </div>
 );

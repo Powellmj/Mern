@@ -26,6 +26,10 @@
   display: none;
 }
 
+.stage-4 {
+  display: none;
+}
+
 .create-group-header {
   color: gray;
   font-size: 16px;
