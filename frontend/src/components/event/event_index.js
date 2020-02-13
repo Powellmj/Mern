@@ -2,7 +2,6 @@ import React from 'react';
 
 class EventIndex extends React.Component {
   render(){
-    console.log(this.props)
     return (
       <div>
         <div>Upcoming simulations (5+)</div>

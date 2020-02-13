@@ -2,9 +2,6 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import Splash from './splash';
 
-const mapStateToProps = () => {
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     processForm: user => dispatch(login(user))
@@ -12,6 +9,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Splash);
