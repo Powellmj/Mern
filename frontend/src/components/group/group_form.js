@@ -92,11 +92,8 @@ class GroupForm extends React.Component {
       owner_id: this.props.currentUser.id,
       organizer: this.props.currentUser.name
     }
-    console.log(this.props.history)
     this.props.createGroup(group).then(setTimeout(() => { 
       if (this.props.group) {
-        console.log(this.props.group._id)
-        console.log(this.props.history)
       this.props.history.push(`${this.props.group._id}`)}}, 400))
   }
 
