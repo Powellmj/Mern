@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ nogroupsfound: "No groups found" }))
 });
 
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   Group.findById((req.params.id))
     .then(group => res.json(group))
     .catch(err =>

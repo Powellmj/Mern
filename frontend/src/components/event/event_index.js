@@ -7,7 +7,10 @@ class EventIndex extends React.Component {
   }
 
   render(){
+<<<<<<< HEAD
     // will need to eventually build in logic to only display upcomming and past events once the db is seeded
+=======
+>>>>>>> master
     return (
       <div>
         <div>
