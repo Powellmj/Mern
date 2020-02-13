@@ -3,7 +3,7 @@ import { requestGroup } from '../../actions/group_actions';
 import GroupShow from './group_show';
 
 const mapStateToProps = (state) => ({
-
+  group: state.entities.groups.currentGroup
 });
 
 const mapDispatchToProps = (dispatch) => ({

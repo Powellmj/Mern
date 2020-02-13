@@ -4,7 +4,9 @@ import GroupForm from './group_form';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    group: state.entities.groups.currentGroup,
+    groups: state.entities.groups
   };
 };
 

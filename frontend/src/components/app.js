@@ -16,9 +16,9 @@ const App = () => (
       <AuthRoute exact path="/" component={splash_container} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <ProtectedRoute path="/api/groups/id/" component={GroupShowContainer} />
-      <ProtectedRoute exact path="/api/groups/create" component={GroupFormContainer}/>
-      <ProtectedRoute exact path="/api/groups" component={GroupIndexContainer} />
+      <ProtectedRoute path="/groups/id/" component={GroupShowContainer} />
+      <ProtectedRoute exact path="/groups/create" component={GroupFormContainer}/>
+      <ProtectedRoute exact path="/groups" component={GroupIndexContainer} />
     </Switch>
   </div>
 );
