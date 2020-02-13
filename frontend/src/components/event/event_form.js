@@ -21,6 +21,7 @@ class EventForm extends React.Component {
 
   componentDidMount() {
     this.setState({ stage: 1 })
+    this.props.fetchGroup(this.props.location.pathname.slice(8, -7))
   }
 
   handleStage(tick) {
@@ -115,7 +116,7 @@ class EventForm extends React.Component {
       event_date: this.state.date,
       start_time: this.state.start,
       end_time: this.state.end,
-      group_id: this.props.currentGroup.id
+      group_id: this.props.group._id
     }
     this.props.createEvent(event).then(setTimeout(() => { 
       if (this.props.group) {
