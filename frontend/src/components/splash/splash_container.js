@@ -9,9 +9,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(
-<<<<<<< HEAD
-=======
   null,
->>>>>>> master
   mapDispatchToProps
 )(Splash);
