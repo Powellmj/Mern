@@ -9,6 +9,12 @@ const events = require("./routes/api/events");
 const passport = require('passport');
 var path = require('path');
 
+
+mongoose
+.connect(db, { useNewUrlParser: true })
+.then(() => console.log("Connected to MongoDB successfully"))
+.catch(err => console.log(err));
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
   app.get('/', (req, res) => {
@@ -16,11 +22,6 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("Connected to MongoDB successfully"))
-  .catch(err => console.log(err));
- 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -29,7 +30,6 @@ app.use("/api/users", users);
 app.use("/api/groups", groups);
 app.use("/api/events", events);
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 const port = process.env.PORT || 5000;
 

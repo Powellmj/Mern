@@ -94,7 +94,7 @@ class GroupForm extends React.Component {
     }
     this.props.createGroup(group).then(setTimeout(() => { 
       if (this.props.group) {
-      this.props.history.push(`/groups/id/${this.props.group}`)}}, 400))
+      this.props.history.push(`${this.props.group._id}`)}}, 400))
   }
 
   render() {
