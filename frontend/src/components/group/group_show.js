@@ -5,7 +5,7 @@ import EventIndexContainer from '../event/event_index_container';
 class GroupShow extends React.Component {
 
   componentDidMount() {
-    // this.props.requestGroup((this.props.location.pathname).replace(this.props.match.path, ''))
+    this.props.requestGroup((this.props.location.pathname).replace(this.props.match.path, ''))
   }
 
   render() {
