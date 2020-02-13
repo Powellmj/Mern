@@ -7,20 +7,36 @@ class EventIndex extends React.Component {
   }
 
   render(){
-    debugger;
+    // will need to eventually build in logic to only display upcomming and past events once the db is seeded
     return (
       <div>
-        <div>Upcoming simulations (5+)</div>
+        <div>
+          <div>Upcoming simulations (5+)</div>
+          <div>See all</div>
+        </div>
         <ul>
           {
-            this.props.events.map((event,i) => (
-              <li key={i}>
+            this.props.events.map(event => (
+              <li key={event._id}>
                 <EventIndexItem event={event} />
               </li>
             ))
           }
         </ul>
-        <div>Past simulations (560)</div>
+        <div>
+          <div>Past simulations (560)</div>
+          <div>See all</div>
+        </div>
+        <div></div>
+        <ul>
+          {
+            this.props.events.map(event => (
+              <li key={event._id}>
+                <EventIndexItem event={event} />
+              </li>
+            ))
+          }
+        </ul>
       </div>
     )
   }
