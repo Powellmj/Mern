@@ -39,7 +39,7 @@ class GroupShow extends React.Component {
               <div className="group-show-desc">{this.props.group.desc}</div>
             </div>
             <div className="group-show-lower-right"></div>
-            <EventIndexContainer />
+            <EventIndexContainer group={this.props.group} />
           </div>
         </div>
       );

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-export const fetchAllEvents = events => (
-  axios.get('/api/events/', events)
+// cant use get for body
+export const fetchAllEvents = group_id => (
+  axios.get(`/api/events/?group_id=${group_id}`)
 );
 
 export const createEvent = event => (

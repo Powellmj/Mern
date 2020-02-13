@@ -19,8 +19,10 @@ const receiveEventErrors = errors => ({
   errors
 });
 
-export const requestAllEvents = () => dispatch => EventAPIUtil.fetchAllEvents()
+export const requestAllEvents = group_id => dispatch => {
+  debugger;
+  EventAPIUtil.fetchAllEvents(group_id)
   .then(events => dispatch(receiveAllEvents(events)))
-
+}
 export const requestEvent = event => dispatch => EventAPIUtil.createEvent(event)
   .then(newEvent => dispatch(receiveEvent(newEvent)))

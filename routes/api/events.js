@@ -8,10 +8,10 @@ const validateEventInput = require('../../validation/event');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the events route" }));
 
-router.get("/group/:group_id", (req, res) => {
-  Event.find()
+router.get("/", (req, res) => {
+  debugger;
+  Event.find({ group_id: req.query.group_id })
     .then(events => res.json(events))
-    .catch(err => res.status(404).json({ noeventsfound: "No events found" }))
 });
 
 router.post("/",
