@@ -5,6 +5,7 @@ import EventIndexContainer from '../event/event_index_container';
 class GroupShow extends React.Component {
 
   componentDidMount() {
+    console.log(this.props.match)
     this.props.requestGroup(this.props.match.params.group_id)
   }
 
