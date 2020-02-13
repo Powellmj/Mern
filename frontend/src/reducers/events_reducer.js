@@ -7,7 +7,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case RECEIVE_ALL_EVENTS:
       console.log(action.events)
-      return Object.assign({}, action.events);
+      return Object.assign({}, action.events.data);
     case RECEIVE_EVENT:
       return Object.assign({}, action.event)
     default:

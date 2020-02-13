@@ -10,7 +10,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the events route" }))
 
 // use query here since in our api util we are using query
 router.get("/", (req, res) => {
-  Event.find({ group_id: req.query.group_id })
+  return Event.find({ group_id: req.query.group_id })
     .then(events => res.json(events))
 });
 
