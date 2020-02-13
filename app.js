@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
-// const db = require('./config/keys').mongoURI;
+const db = require('./config/keys').mongoURI;
 const bodyParser = require('body-parser');
 const users = require("./routes/api/users");
 const groups = require("./routes/api/groups");
@@ -11,9 +11,9 @@ var path = require('path');
 
 
 mongoose
-// .connect(db, { useNewUrlParser: true })
-// .then(() => console.log("Connected to MongoDB successfully"))
-// .catch(err => console.log(err));
+.connect(db, { useNewUrlParser: true })
+.then(() => console.log("Connected to MongoDB successfully"))
+.catch(err => console.log(err));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
