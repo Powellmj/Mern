@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchAllEvents: group_id => {
-    debugger;
     dispatch(requestAllEvents(group_id))}
 });
 
