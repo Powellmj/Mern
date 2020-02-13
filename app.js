@@ -8,7 +8,6 @@ const groups = require("./routes/api/groups");
 const events = require("./routes/api/events");
 const passport = require('passport');
 var path = require('path');
-const path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
