@@ -118,9 +118,8 @@ class EventForm extends React.Component {
       end_time: this.state.end,
       group_id: this.props.group._id
     }
-    this.props.createEvent(event).then(setTimeout(() => { 
-      if (this.props.group) {
-      this.props.history.push(`/groups/id/${this.props.group}`)}}, 400))
+    this.props.createEvent(event)
+    this.props.history.push(`/groups/${this.props.group._id}`)
   }
 
   render() {
@@ -192,12 +191,12 @@ class EventForm extends React.Component {
               <label>Date
               <input type="date" value={this.state.date} onChange={this.update('date')}/>
               </label>
-              <labe>Start time
+              <label>Start time
               <input type="time" value={this.state.start} onChange={this.update('start')}/>
-              </labe>
-              <labe>End time
+              </label>
+              <label>End time
               <input type="time" value={this.state.end} onChange={this.update('end')}/>
-              </labe>
+              </label>
               <input className="group-form-submit" type="submit" value="Create"/>
             </div>
           </form>
