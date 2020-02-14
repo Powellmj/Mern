@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import EventIndexItem from './event_index_item';
 
 class EventIndex extends React.Component {
@@ -7,36 +8,49 @@ class EventIndex extends React.Component {
   }
 
   render(){
-    // will need to eventually build in logic to only display upcomming and past events once the db is seeded
     return (
-      <div>
-        <div>
-          <div>Upcoming simulations (5+)</div>
-          <div>See all</div>
+      <div className="">
+        <div className="">
+          <div className="">Upcoming simulations (5+)</div>
+          <div className="">See all</div>
+        </div>
+        <ul>
+          {
+            this.props.events.map(event => {
+              // need to implement logic for future and past dates
+              return (
+                <li key={event._id}>
+                  <Link to={`/groups/${this.props.group._id}/event/${event._id}`}>
+                    <EventIndexItem event={event} />
+                  </Link>
+                </li>
+              )}
+            )
+          }
+        </ul>
+        <div className="">
+          <div className="">Past simulations (560)</div>
+          <div className="">See all</div>
         </div>
         <ul>
           {
             this.props.events.map(event => (
               <li key={event._id}>
-                <EventIndexItem event={event} />
+                <Link to={`/groups/${this.props.group._id}/event/${event._id}`}>
+                  <EventIndexItem event={event} />
+                </Link>
               </li>
             ))
           }
         </ul>
-        <div>
-          <div>Past simulations (560)</div>
-          <div>See all</div>
+        <div className="">
+          <div className="">Photos (74)</div>
+          <div className="">See all</div>
         </div>
-        <div></div>
-        <ul>
-          {
-            this.props.events.map(event => (
-              <li key={event._id}>
-                <EventIndexItem event={event} />
-              </li>
-            ))
-          }
-        </ul>
+        <div className="">
+          <div className="">Discussions (2)</div>
+          <div className="">See all</div>
+        </div>
       </div>
     )
   }

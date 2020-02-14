@@ -3,9 +3,10 @@ import EventIndex from './event_index';
 
 const EventIndexItem = ({ event }) => {
   // there is a drop shadow hover effect for each item
+  let eventDate = (new Date(event.date)).toDateString();
   return (
     <div>
-      <div>{event.date}</div>
+      <div>{eventDate}</div>
       <div>{event.title}</div>
       <div><i className="fas fa-map-marker-alt"></i>{event.location}</div>
       <div>{event.desc}</div>
