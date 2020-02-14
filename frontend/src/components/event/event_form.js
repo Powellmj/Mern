@@ -119,8 +119,9 @@ class EventForm extends React.Component {
       event_end: this.state.end,
       group_id: this.props.group._id
     }
-    this.props.createEvent(event)
-    this.props.history.push(`/groups/${this.props.group._id}`)
+    this.props.createEvent(event, (event_id) => {
+      this.props.history.push(`/groups/${this.props.group._id}/events/${event_id}`)
+    })
   }
 
   renderErrors(){
@@ -138,7 +139,7 @@ class EventForm extends React.Component {
   }
 
   componentWillUnmount(){
-    this.props.clearEventErrors()
+    this.props.clearErrors()
   }
 
   render() {
@@ -151,6 +152,7 @@ class EventForm extends React.Component {
           <div className="create-group-progress-3"></div>
           <div className="create-group-progress-4"></div>
           {`Step ${this.state.stage} of 4`}
+          {this.renderErrors()}
         </div>
         <div className="create-group-form">
           <form onSubmit={this.handleSubmit}> 

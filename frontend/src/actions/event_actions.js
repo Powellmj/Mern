@@ -30,5 +30,9 @@ export const requestAllEvents = group_id => dispatch => EventAPIUtil.fetchAllEve
 export const requestEvent = event_id => dispatch => EventAPIUtil.fecthEvent(event_id)
   .then(event => dispatch(receiveEvent(event)))
 
-export const newEvent = event => dispatch => EventAPIUtil.createEvent(event)
-  .then(newEvent => dispatch(receiveEvent(newEvent)))
+export const newEvent = (event, cb) => dispatch => EventAPIUtil.createEvent(event)
+  .then(newEvent => {
+    dispatch(receiveEvent(newEvent))
+    cb(newEvent.data._id)
+  })
+  .catch(err => dispatch(receiveEventErrors(err.response.data)))

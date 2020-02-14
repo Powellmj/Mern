@@ -6,11 +6,11 @@ import { fetchGroup } from '../../util/group_api_util';
 
 const mapStateToProps = state => ({
   group: state.entities.groups.currentGroup,
-  errors: state.errors.events
+  errors: Object.values(state.errors.events)
 });
 
 const mapDispatchToProps = dispatch => ({
-  createEvent: event => dispatch(newEvent(event)),
+  createEvent: (event, cb) => dispatch(newEvent(event, cb)),
   fetchGroup: group => dispatch(requestGroup(group)),
   clearErrors: () => dispatch(clearEventErrors())
 });

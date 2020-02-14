@@ -41,7 +41,7 @@ passport.authenticate('jwt', { session: false }),
 
     
     newEvent.save().then(event => {
-      Group.findById({ group: req.params.group_id })
+      Group.findById(req.body.group_id)
         .then(group => {
           group.events.push(event)
           group.save().then(() => res.json(event))
