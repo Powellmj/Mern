@@ -11,3 +11,7 @@ export const fetchAllGroups = groups => (
 export const createGroup = data => {
   return axios.post('/api/groups/', data)
 }
+
+export const joinGroup = (group_id, user_id) => {
+  return axios.patch(`/api/groups/${group_id}`, (group_id, user_id))
+}

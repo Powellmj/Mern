@@ -10,7 +10,10 @@ const GroupIndexItem = (props) => {
     <div onClick={() => {handleClick(props.group.id)}} className="index-item">
       <div className="index-item-text">
         <div className="index-item-title">{props.group.title}</div>
-        <div className="index-item-members">42069 members</div>
+        <div className="index-item-members">
+          {props.group.members.length}
+          {props.group.members.length === 1 ? " Member" : " Members"}
+        </div>
       </div>
     </div>
   )

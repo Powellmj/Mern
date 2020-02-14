@@ -28,12 +28,14 @@ class GroupForm extends React.Component {
       document.querySelector('.stage-1').style.display = 'flex';
       document.querySelector('.stage-2').style.display = 'none';
       document.querySelector('.stage-3').style.display = 'none';
+      document.querySelector('.create-group-stage-back-button').style.display = 'none';
     }
     if (this.state.stage === 2) {
       document.querySelector('.stage-1').style.display = 'none';
       document.querySelector('.stage-2').style.display = 'flex';
       document.querySelector('.stage-3').style.display = 'none';
       document.querySelector('.create-group-stage-button').style.display = 'block';
+      document.querySelector('.create-group-stage-back-button').style.display = 'block';
     }
     if (this.state.stage === 3) {
       document.querySelector('.stage-1').style.display = 'none';
@@ -93,8 +95,7 @@ class GroupForm extends React.Component {
       organizer: this.props.currentUser.name
     }
     this.props.createGroup(group).then(setTimeout(() => { 
-      if (this.props.group) {
-      this.props.history.push(`${this.props.group._id}`)}}, 400))
+    this.props.history.push(`${this.props.group._id}`)}, 400))
   }
 
   render() {
