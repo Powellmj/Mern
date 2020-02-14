@@ -123,7 +123,26 @@ class EventForm extends React.Component {
     this.props.history.push(`/groups/${this.props.group._id}`)
   }
 
+  renderErrors(){
+    return (
+      <ul>
+        {
+          this.props.errors.map((error, i) => (
+            <li key={i}>
+              {error}
+            </li>
+          ))
+        }
+      </ul>
+    );
+  }
+
+  componentWillUnmount(){
+    this.props.clearEventErrors()
+  }
+
   render() {
+    console.log(this.props)
     return (
       <div className="create-group-form-container">
         <div className="create-group-header">
