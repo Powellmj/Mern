@@ -1,61 +1,135 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class EventShow extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.mapAttendees = this.mapAttendees.bind(this)
+  }
+
   componentDidMount(){
     this.props.fetchEvent(this.props.match.params.event_id)
+    this.props.fetchGroup(this.props.match.params.group_id)
+  }
+
+  mapAttendees() {
+    var defaultArr = [
+      { name: "Invite your mom!" },
+      { name: "Invite your friend!" },
+      { name: "Invite your coworker!" },
+      { name: "Invite your dog!" },
+      { name: "Invite your long lost cousin!" },
+      { name: "Invite your pet rock!" },
+      { name: "Invite your frenemy!" },
+      { name: "Invite your crush!" }
+    ]
+
+    var attendeesArr = this.props.event.attendees || []
+    if (attendeesArr.length < 8) {
+      attendeesArr = attendeesArr.concat(defaultArr)
+    }
+
+    return attendeesArr.map(attendee => {
+      return (
+        <div className="event-show-attendee-box">
+          <div className="event-show-attendee-picture"><i className="event-show-attendee fa fa-user"></i></div>
+          <div className="event-show-attendee-name">{attendee.name}</div>
+          <div className="event-show-attendee-member">Member</div>
+        </div>
+      )
+    })
   }
 
   render(){
-    console.log(this.props)
     const event = this.props.event;
+    const group = this.props.group;
     const dateDay = (new Date(event.date)).toDateString();
     return (
       <div className="event-show-container">
-        <div className="event-show-date">{dateDay}</div>
-        <div className="event-show-title">{event.title}</div>
-        <div className="event-show-host-container">
-          <div className="event-show-host-box">
-            <div className="event-show-host-image">image</div>
-            <div className="event-show-host-details">
-              <div className="event-show-host-by">Hosted by</div>
-              <div className="event-show-host-owner">group owner</div>
+          <div className="event-show-sticky-header-whitespace"></div>
+          <div className="event-show-sticky-header-pos">
+          <div className="event-show-sticky-header">
+            <div className="event-show-date sticky-date">{dateDay}</div>
+            <div className="event-show-title sticky-title">{event.title}</div>
+          </div>
+        </div>
+        <div className="event-show-header">
+          <div className="event-show-date">{dateDay}</div>
+          <div className="event-show-title">{event.title}</div>
+          <div className="event-show-host-container">
+            <div className="event-show-host-box">
+              <div className="event-show-host-image"><i className="event-show-user fa fa-user"></i></div>
+              <div className="event-show-host-details">
+                <div className="event-show-host-by">Hosted by</div>
+                <div className="event-show-host-owner">{group ? group.organizer || "Squiddy" : "Squiddy"}</div>
+              </div>
+            </div>
+            <div className="event-show-host-share">
+              <i className="fas fa-share"></i>
+              <div className="event-show-host-share-detail">Share</div>
             </div>
           </div>
-          <div className="event-show-host-share">
-            <i className="fas fa-share"></i>
-            <div className="event-show-host-share-detail">Share</div>
+        </div>
+        <div className="event-show-body">
+          <div className="event-show-body-left">
+          <div className="event-show-image"></div>
+          <div className="event-show-details">
+            <div className="event-show-details-title">Details</div>
+            <div className="event-show-details-desc">{event.desc}</div>
           </div>
-        </div>
-        <div className="event-show-image">image here</div>
-        <div className="event-show-details">
-          <div className="event-show-details-title">Details</div>
-          <div className="event-show-details-desc">{event.desc}</div>
-        </div>
-        <div className="">
           <div className="">
-            <div>Attendees (14)</div>
-            <div>See all</div>
-          </div>
-          <div>
-            map out attendees
-          </div>
-        </div>
-        <div className="event-show">
-          <div>comments</div>
-          <div>comments details</div>
-        </div>
-        <div className="event-show-footer">
-          <div className="event-show-footer-details">
-            <div className="event-show-footer-details-date">{`${dateDay} · ${event.event_start}`}</div>
-            <div className="event-show-footer-details-title">{event.title}</div>
-          </div>
-          <div>
-            <div>
-              <div>free</div>
-              <div>0 spots left</div>
+              <div className="event-index-banner">
+                <div className="event-index-banner-title">Attendees ({event.attendees ? event.attendees.length || 1 : 1})</div>
+                <div className="event-index-banner-see">See all</div>
             </div>
-            <div><i className="far fa-star"></i></div>
-            <div>Attend</div>
+            <div className="event-show-attendees-list">
+              {this.mapAttendees()}
+            </div>
+          </div>
+        </div>
+          <div className="event-show-body-right-placeholder">
+          <div className="event-show-body-right">
+            { group ?
+            (<Link to={`/groups/${group._id}`}>
+              <div className="event-show-right-group">
+                  <div className="event-show-group-image"><i className="fa fa-camera"></i></div>
+                <div className="event-show-right-group-header">
+                  <div className="event-show-right-group-title">{group ? group.title : null}</div>
+                  <div className="event-show-right-group-desc">Public Group</div>
+                </div>
+              </div>
+            </Link>) : null }
+            <div className="event-show-right-info">
+              <div className="event-show-cat">
+                  <div><i class="fa fa-clock-o"></i></div>
+                <div className="event-show-right-date">
+                  <div>When: {dateDay}</div>
+                  <div>Starting at: {event.start_time}</div>
+                  <div>Ending at: {event.end_time}</div>
+                </div>
+              </div>
+              <div className="event-show-cat">
+              <div><i class="material-icons">place</i></div>
+              <div className="event-show-location">Where: {event.location}</div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div className="event-show-footer-sticky">
+          <div className="event-show-footer">
+            <div className="event-show-footer-details">
+              <div className="event-show-footer-details-date">{`${dateDay} · ${event.start_time}`}</div>
+              <div className="event-show-footer-details-title">{event.title}</div>
+            </div>
+            <div className="event-show-footer-right">
+              <div className="event-show-footer-right-availability">
+                <div className="event-show-free">Free</div>
+              </div>
+              <div><i className="far fa-star"></i></div>
+              <div className="group-show-button attend-button">Attend</div>
+            </div>
           </div>
         </div>
       </div>

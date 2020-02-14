@@ -33,7 +33,11 @@ const EventSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  attendees: [{
+    type: Schema.Types.ObjectId,
+    ref: 'users'
+  }]
 })
 
 module.exports = Event = mongoose.model('Event', EventSchema);
