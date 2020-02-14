@@ -142,7 +142,6 @@ class EventForm extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="create-group-form-container">
         <div className="create-group-header">

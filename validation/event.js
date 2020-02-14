@@ -3,7 +3,6 @@ const validText = require('./valid-text');
 
 module.exports = function validateEventInput(data) {
   let errors = {};
-  const afterDate = '05-11-2020';
 
   data.title = validText(data.title) ? data.title : '';
   data.desc = validText(data.desc) ? data.desc : '';
@@ -32,6 +31,10 @@ module.exports = function validateEventInput(data) {
     errors.event_start = 'Start date and time field is required';
   }
 
+  if (Validator.isAfter(data.event_start,'2025-01-01')) {
+    errors.event_start = 'Start date must be before 01-01-2025';
+  }
+  
   if (Validator.isEmpty(data.event_end)) {
     errors.event_end = 'End date and time field is required';
   }
