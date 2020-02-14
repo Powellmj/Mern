@@ -145,3 +145,8 @@
 .group-show-lower-right {
   width: 400px;
 }
+
+.event-show-attendees-container {
+  display: flex;
+  justify-content: space-between;
+}
