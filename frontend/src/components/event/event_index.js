@@ -59,7 +59,7 @@ class EventIndex extends React.Component {
             if (idx < 4) {
             return (
               <li key={event._id}>
-                <Link to={`/groups/${this.props.group._id}/event/${event._id}`}>
+                <Link to={`/groups/${this.props.group._id}/${event._id}`}>
                   <EventIndexItem event={event} past={false} />
                 </Link>
               </li>
@@ -76,7 +76,7 @@ class EventIndex extends React.Component {
             if (idx < 4) {
             return (
             <li key={event._id}>
-              <Link to={`/groups/${this.props.group._id}/event/${event._id}`}>
+              <Link to={`/groups/${this.props.group._id}/${event._id}`}>
                 <EventIndexItem event={event} past={true} />
               </Link>
             </li>
