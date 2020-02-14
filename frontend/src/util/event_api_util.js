@@ -6,6 +6,9 @@ export const fetchAllEvents = group_id => (
   axios.get(`/api/events/?group_id=${group_id}`)
 );
 
+export const fecthEvent = event =>
+  axios.get(`/api/events/${event.id}`)
+
 export const createEvent = event => (
   axios.post('/api/events/', event)
 );

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestEvent } from '../../actions/event_actions';
+import { newEvent } from '../../actions/event_actions';
 import { requestGroup } from '../../actions/group_actions';
 import EventForm from './event_form';
 import { fetchGroup } from '../../util/group_api_util';
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createEvent: event => dispatch(requestEvent(event)),
+  createEvent: event => dispatch(newEvent(event)),
   fetchGroup: group => dispatch(requestGroup(group))
 });
 
