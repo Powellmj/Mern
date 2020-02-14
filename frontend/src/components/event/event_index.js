@@ -20,7 +20,7 @@ class EventIndex extends React.Component {
               // need to implement logic for future and past dates
               return (
                 <li key={event._id}>
-                  <Link to={`/groups/${this.props.group._id}/event/${event._id}`}>
+                  <Link to={`/groups/${this.props.group._id}/${event._id}`}>
                     <EventIndexItem event={event} />
                   </Link>
                 </li>
@@ -36,7 +36,7 @@ class EventIndex extends React.Component {
           {
             this.props.events.map(event => (
               <li key={event._id}>
-                <Link to={`/groups/${this.props.group._id}/event/${event._id}`}>
+                <Link to={`/groups/${this.props.group._id}/${event._id}`}>
                   <EventIndexItem event={event} />
                 </Link>
               </li>
