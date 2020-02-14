@@ -43,4 +43,13 @@ router.post("/",
   }
 );
 
+router.patch("/:id", (req, res) => {
+  const filter = { _id: req.params.id }
+
+  Group.findOneAndUpdate(filter, { "$addToSet": { members: (Object.keys(req.body)[0]) }}, { new: true }).then((group) => {
+    res.json(group)
+  })
+    .catch(err => console.log(err))
+});
+
 module.exports = router;

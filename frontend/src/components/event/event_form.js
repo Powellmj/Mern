@@ -33,6 +33,7 @@ class EventForm extends React.Component {
       document.querySelector('.stage-2').style.display = 'none';
       document.querySelector('.stage-3').style.display = 'none';
       document.querySelector('.stage-4').style.display = 'none';
+      document.querySelector('.create-group-stage-back-button').style.display = 'none';
     }
     if (this.state.stage === 2) {
       document.querySelector('.stage-1').style.display = 'none';
@@ -40,6 +41,7 @@ class EventForm extends React.Component {
       document.querySelector('.stage-3').style.display = 'none';
       document.querySelector('.stage-4').style.display = 'none';
       document.querySelector('.create-group-stage-button').style.display = 'block';
+      document.querySelector('.create-group-stage-back-button').style.display = 'block';
     }
     if (this.state.stage === 3) {
       document.querySelector('.stage-1').style.display = 'none';

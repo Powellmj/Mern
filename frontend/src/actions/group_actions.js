@@ -29,3 +29,6 @@ export const createGroup = group => dispatch => (
     .then(group => dispatch(receiveGroup(group.data)))
     .catch(err => console.log(err))
 );
+
+export const joinGroup = (group_id, user_id) => dispatch => {
+  return APIUtil.joinGroup(group_id, user_id)}
