@@ -39,6 +39,10 @@ module.exports = function validateEventInput(data) {
     errors.event_end = 'End date and time field is required';
   }
 
+  if (Validator.isBefore(data.event_end, new Date(data.event_start).toDateString())) {
+    errors.event_end = 'End date must be after the start date or time '
+  }
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0
