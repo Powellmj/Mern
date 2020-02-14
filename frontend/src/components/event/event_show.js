@@ -6,11 +6,12 @@ class EventShow extends React.Component {
   }
 
   render(){
+    console.log(this.props)
     const event = this.props.event;
     const dateDay = (new Date(event.date)).toDateString();
     return (
       <div className="event-show-container">
-        <div className="event-show-date">{event.date}</div>
+        <div className="event-show-date">{dateDay}</div>
         <div className="event-show-title">{event.title}</div>
         <div className="event-show-host-container">
           <div className="event-show-host-box">
