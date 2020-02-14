@@ -48,49 +48,19 @@ class EventIndex extends React.Component {
   render(){
     if (!this.state.future.length && !this.state.past.length) {this.mapEvents()}
     return (
-<<<<<<< HEAD
-      <div className="">
-        <div className="">
-          <div className="">Upcoming simulations (5+)</div>
-          <div className="">See all</div>
-        </div>
-        <ul>
-          {
-            this.props.events.map(event => {
-              // need to implement logic for future and past dates
-              return (
-                <li key={event._id}>
-                  <Link to={`/groups/${this.props.group._id}/${event._id}`}>
-                    <EventIndexItem event={event} />
-                  </Link>
-                </li>
-              )}
-            )
-          }
-        </ul>
-        <div className="">
-          <div className="">Past simulations (560)</div>
-          <div className="">See all</div>
-=======
       <div className="event-index">
         <div className="event-index-banner">
           <div className="event-index-banner-title">Upcoming simulations {
           this.state.future.length ? `(${this.state.future.length})` : "(Keeping our options open)"}</div>
           <div className="event-index-banner-see">See all</div>
->>>>>>> master
         </div>
         <ul>
           {this.state.future.map((event, idx) => {
             if (idx < 4) {
             return (
               <li key={event._id}>
-<<<<<<< HEAD
-                <Link to={`/groups/${this.props.group._id}/${event._id}`}>
-                  <EventIndexItem event={event} />
-=======
                 <Link to={`/groups/${this.props.group._id}/event/${event._id}`}>
                   <EventIndexItem event={event} past={false} />
->>>>>>> master
                 </Link>
               </li>
             )}}
