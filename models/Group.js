@@ -33,6 +33,10 @@ const GroupSchema = new Schema({
   events: [{
     type: Schema.Types.ObjectId,
     ref: 'events'
+  }],
+  members: [{
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   }]
 })
 
