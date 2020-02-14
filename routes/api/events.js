@@ -35,9 +35,8 @@ passport.authenticate('jwt', { session: false }),
       desc: req.body.desc,
       location: req.body.location,
       group_id: req.body.group_id,
-      event_date: req.body.event_date,
-      start_time: req.body.start_time,
-      end_time: req.body.end_time
+      event_start: req.body.event_start,
+      event_end: req.body.event_end
     });
 
     

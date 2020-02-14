@@ -46,7 +46,7 @@ class EventShow extends React.Component {
         </div>
         <div className="event-show-footer">
           <div className="event-show-footer-details">
-            <div className="event-show-footer-details-date">{`${dateDay} · ${event.start_time}`}</div>
+            <div className="event-show-footer-details-date">{`${dateDay} · ${event.event_start}`}</div>
             <div className="event-show-footer-details-title">{event.title}</div>
           </div>
           <div>

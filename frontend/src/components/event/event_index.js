@@ -28,11 +28,11 @@ class EventIndex extends React.Component {
     var today = yyyy + '-' + mm + '-' + dd;
 
     this.props.events.map(event => {
-      if (new Date(today) < new Date(event.event_date)) {
+      if (new Date(today) < new Date(event.event_start)) {
         return (
           this.state.future.push(event)
         )
-      } else if (new Date(today) > new Date(event.event_date)) {
+      } else if (new Date(today) > new Date(event.event_start)) {
         return (
          this.state.past.push(event)
         )

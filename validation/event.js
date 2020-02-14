@@ -8,9 +8,8 @@ module.exports = function validateEventInput(data) {
   data.desc = validText(data.desc) ? data.desc : '';
   data.location = validText(data.location) ? data.location : '';
   data.group = validText(data.group_id) ? data.group_id : '';
-  data.date = validText(data.event_date) ? data.event_date : '';
-  data.start = validText(data.start_time) ? data.start_time : '';
-  data.end = validText(data.end_time) ? data.end_time : '';
+  data.start = validText(data.event_start) ? data.event_start : '';
+  data.end = validText(data.event_end) ? data.event_end : '';
 
   if (Validator.isEmpty(data.title)) {
     errors.title = 'Title field is required';
@@ -28,16 +27,12 @@ module.exports = function validateEventInput(data) {
     errors.group_id = 'Group field is required';
   }
 
-  if (Validator.isEmpty(data.event_date)) {
-    errors.event_date = 'Date field is required';
+  if (Validator.isEmpty(data.event_start)) {
+    errors.event_start = 'Start time field is required';
   }
 
-  if (Validator.isEmpty(data.start_time)) {
-    errors.start_time = 'Start time field is required';
-  }
-
-  if (Validator.isEmpty(data.end_time)) {
-    errors.end_time = 'End time field is required';
+  if (Validator.isEmpty(data.event_end)) {
+    errors.event_end = 'End time field is required';
   }
 
   return {
