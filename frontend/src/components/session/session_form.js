@@ -57,17 +57,16 @@ class LoginForm extends React.Component {
       <div className="session-container">
         {this.renderErrors()}
         <div className="session-form">
-          <div>
-          <form onSubmit={this.handleSubmit}>
+          <form className="session-form" onSubmit={this.handleSubmit}>
             <div className="session-title">{this.props.formType}</div>
             { 
             this.props.formType === "Sign up" ?
-              <label className="session-label"> Your name
+                <label className="session-label">Your name
                 <input className="session-text-input" type="text"
                 value={this.state.name}
                 onChange={this.update('name')}
                 />
-              </label>
+                </label>
               : null 
               }
             <label className="session-label"> Email address
@@ -83,11 +82,15 @@ class LoginForm extends React.Component {
               />
             </label>
             <input className="session-submit" type="submit" value="Continue" />
+          <div className="session-submit-disclosure">
+            When you "Continue" or "Demo Login", you agree to Meetin's Terms of Service. 
+            We will manage information about you as described in our 
+            Privacy Policy, and Cookie Policy.
+          </div>
           </form>
             <button className="session-submit demo" onClick={() => { this.handleDemo() }}>Demo Login</button>
           </div>
         </div>
-      </div>
     );
   }
 }
