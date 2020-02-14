@@ -9,6 +9,7 @@ import GroupIndexContainer from './group/group_index_container';
 import GroupFormContainer from './group/group_form_container';
 import GroupShowContainer from './group/group_show_container';
 import EventFormContainer from './event/event_form_container';
+import EventShowContainer from './event/event_show_container';
 
 const App = () => (
   <div>
@@ -21,6 +22,7 @@ const App = () => (
       <ProtectedRoute exact path="/groups/:group_id" component={GroupShowContainer} />
       <ProtectedRoute exact path="/groups" component={GroupIndexContainer} />
       <ProtectedRoute exact path="/groups/:group_id/create" component={EventFormContainer} />
+      <ProtectedRoute exact path="/groups/:group_id/:event_id" component={EventShowContainer} />
     </Switch>
   </div>
 );

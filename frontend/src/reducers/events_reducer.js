@@ -9,7 +9,7 @@ export default function (state = initialState, action) {
       // use events.data to capture the actual array
       return Object.assign({}, action.events.data);
     case RECEIVE_EVENT:
-      return Object.assign({}, action.event)
+      return Object.assign({}, action.event.data)
     default:
       return state;
   }

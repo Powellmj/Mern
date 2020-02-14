@@ -12,7 +12,14 @@ router.get("/test", (req, res) => res.json({ msg: "This is the events route" }))
 router.get("/", (req, res) => (
   Event.find({ group_id: req.query.group_id })
     .then(events => res.json(events))
+    .catch(err => res.status(404).json({ noeventsfound: "No events found" }))
 ));
+
+router.get("/:id", (req, res) => (
+  Event.findById(req.params.id)
+    .then(event => res.json(event))
+    .catch(err => res.status(404).json({ noeventfound: "No event found" }))
+))
 
 router.post("/",
 passport.authenticate('jwt', { session: false }),
