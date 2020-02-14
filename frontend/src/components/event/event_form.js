@@ -115,13 +115,31 @@ class EventForm extends React.Component {
       title: this.state.title,
       desc: this.state.desc,
       location: this.state.location,
-      event_date: this.state.date,
-      start_time: this.state.start,
-      end_time: this.state.end,
+      event_start: this.state.start,
+      event_end: this.state.end,
       group_id: this.props.group._id
     }
-    this.props.createEvent(event)
-    this.props.history.push(`/groups/${this.props.group._id}`)
+    this.props.createEvent(event, (event_id) => {
+      this.props.history.push(`/groups/${this.props.group._id}/events/${event_id}`)
+    })
+  }
+
+  renderErrors(){
+    return (
+      <ul>
+        {
+          this.props.errors.map((error, i) => (
+            <li key={i}>
+              {error}
+            </li>
+          ))
+        }
+      </ul>
+    );
+  }
+
+  componentWillUnmount(){
+    this.props.clearErrors()
   }
 
   render() {
@@ -134,6 +152,7 @@ class EventForm extends React.Component {
           <div className="create-group-progress-3"></div>
           <div className="create-group-progress-4"></div>
           {`Step ${this.state.stage} of 4`}
+          {this.renderErrors()}
         </div>
         <div className="create-group-form">
           <form onSubmit={this.handleSubmit}> 
@@ -190,14 +209,11 @@ class EventForm extends React.Component {
               <div className="create-group-stage-text">
                 Let your group know when and where to plug into your simulation!
               </div>
-              <label>Date
-              <input type="date" value={this.state.date} onChange={this.update('date')}/>
+              <label>Start
+              <input type="datetime-local" value={this.state.start} onChange={this.update('start')}/>
               </label>
-              <label>Start time
-              <input type="time" value={this.state.start} onChange={this.update('start')}/>
-              </label>
-              <label>End time
-              <input type="time" value={this.state.end} onChange={this.update('end')}/>
+              <label>End
+              <input type="datetime-local" value={this.state.end} onChange={this.update('end')}/>
               </label>
               <input className="group-form-submit" type="submit" value="Create"/>
             </div>

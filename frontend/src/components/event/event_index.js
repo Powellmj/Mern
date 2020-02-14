@@ -15,7 +15,7 @@ class EventIndex extends React.Component {
   }
 
   mapEvents() {
-    var today = new Date();
+    var today = new Date('2020-01-02');
     var dd = today.getDate();
     var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
@@ -26,13 +26,14 @@ class EventIndex extends React.Component {
       mm = '0' + mm;
     }
     var today = yyyy + '-' + mm + '-' + dd;
+    console.log(today)
 
     this.props.events.map(event => {
-      if (new Date(today) < new Date(event.event_date)) {
+      if (new Date(today) < new Date(event.event_start)) {
         return (
           this.state.future.push(event)
         )
-      } else if (new Date(today) > new Date(event.event_date)) {
+      } else if (new Date(today) > new Date(event.event_start)) {
         return (
          this.state.past.push(event)
         )
@@ -46,6 +47,7 @@ class EventIndex extends React.Component {
   }
 
   render(){
+    // debugger;
     if (!this.state.future.length && !this.state.past.length) {this.mapEvents()}
     return (
       <div className="event-index">

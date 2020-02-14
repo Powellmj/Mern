@@ -5,7 +5,7 @@ import EventIndex from './event_index';
 {/* <div>69</div> */}
 
 const EventIndexItem = ({ past, event }) => {
-  let eventDate = (new Date(event.event_date)).toDateString();
+  let eventDate = (new Date(event.event_start)).toDateString();
   return (
     <div className="event-index-item">
       <div className="event-index-border">
