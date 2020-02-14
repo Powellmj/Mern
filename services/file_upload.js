@@ -15,6 +15,7 @@ const upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: "mern-meetin-pro",
+    acl: "public-read",
     metadata: function(req, file, cb) {
       cb(null, { fieldName: file.fieldname });
     },

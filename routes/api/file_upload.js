@@ -8,7 +8,8 @@ const singleUpload = upload.single('image');
 router.post('/', (req, res) => {
 
   singleUpload(req, res, (err) => {
-
     return res.json({'imageURL': req.file.location});
   });
 });
+
+module.exports = router;
