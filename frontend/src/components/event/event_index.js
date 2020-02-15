@@ -12,10 +12,11 @@ class EventIndex extends React.Component {
     }
 
     this.mapEvents = this.mapEvents.bind(this)
+    this.handleExpand = this.handleExpand.bind(this)
   }
 
   mapEvents() {
-    var today = new Date();
+    var today = new Date('2020-01-02');
     var dd = today.getDate();
     var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
@@ -28,11 +29,11 @@ class EventIndex extends React.Component {
     var today = yyyy + '-' + mm + '-' + dd;
 
     this.props.events.map(event => {
-      if (new Date(today) < new Date(event.event_date)) {
+      if (new Date(today) < new Date(event.event_start)) {
         return (
           this.state.future.push(event)
         )
-      } else if (new Date(today) > new Date(event.event_date)) {
+      } else if (new Date(today) > new Date(event.event_start)) {
         return (
          this.state.past.push(event)
         )
@@ -40,6 +41,14 @@ class EventIndex extends React.Component {
     })
   }
 
+  handleExpand(ele) {
+    var list = document.querySelector(ele)
+    if (list.style.maxHeight === "inherit") {
+      list.style.maxHeight = "1045px";
+    } else {
+    list.style.maxHeight = "inherit";
+    }
+  }
 
   componentDidMount(){
     this.props.fetchAllEvents(this.props.group._id)
@@ -49,39 +58,39 @@ class EventIndex extends React.Component {
     if (!this.state.future.length && !this.state.past.length) {this.mapEvents()}
     return (
       <div className="event-index">
+          <a id="events"></a>
         <div className="event-index-banner">
           <div className="event-index-banner-title">Upcoming simulations {
           this.state.future.length ? `(${this.state.future.length})` : "(Keeping our options open)"}</div>
-          <div className="event-index-banner-see">See all</div>
+          <div onClick={() => {this.handleExpand(".event-list-future")}} className="event-index-banner-see">See all</div>
         </div>
-        <ul>
-          {this.state.future.map((event, idx) => {
-            if (idx < 4) {
+        <ul className="event-list-future">
+          {this.state.future.map(event => {
             return (
               <li key={event._id}>
-                <Link to={`/groups/${this.props.group._id}/${event._id}`}>
+                <Link to={`/groups/${this.props.group._id}/events/${event._id}`}>
                   <EventIndexItem event={event} past={false} />
                 </Link>
               </li>
-            )}}
+            )}
           )}
         </ul>
         <div className="event-index-banner">
           <div className="event-index-banner-title">Past simulations {
           this.state.past.length ? `(${this.state.past.length})` : "(Clean slate!)"}</div>
-          <div className="event-index-banner-see">See all</div>
+          <div onClick={() => {this.handleExpand(".event-list-past")}} className="event-index-banner-see">See all</div>
         </div>
-        <ul>
-          {this.state.past.map((event, idx) => {
-            if (idx < 4) {
+        <ul className="event-list-past">
+          {this.state.past.map(event => {
             return (
             <li key={event._id}>
               <Link to={`/groups/${this.props.group._id}/${event._id}`}>
                 <EventIndexItem event={event} past={true} />
               </Link>
             </li>
-          )}})}
+          )})}
         </ul>
+            <a id="photos"></a>
           <div className="event-index-banner">
             <div className="event-index-banner-title">Photos (None yet!)</div>
             <div className="event-index-banner-see">See all</div>
@@ -91,6 +100,7 @@ class EventIndex extends React.Component {
             <div className="event-index-photo"><i className="fa fa-camera"></i></div>
             <div className="event-index-photo"><i className="fa fa-camera"></i></div>
         </div>
+          <a id="discussions"></a>
         <div className="event-index-banner">
           <div className="event-index-banner-title">Discussions (Quiet in here...)</div>
           <div className="event-index-banner-see">See all</div>

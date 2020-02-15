@@ -35,14 +35,13 @@ passport.authenticate('jwt', { session: false }),
       desc: req.body.desc,
       location: req.body.location,
       group_id: req.body.group_id,
-      event_date: req.body.event_date,
-      start_time: req.body.start_time,
-      end_time: req.body.end_time
+      event_start: req.body.event_start,
+      event_end: req.body.event_end
     });
 
     
     newEvent.save().then(event => {
-      Group.findById({ group: req.params.group_id })
+      Group.findById(req.body.group_id)
         .then(group => {
           group.events.push(event)
           group.save().then(() => res.json(event))

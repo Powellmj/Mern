@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { requestAllEvents } from '../../actions/event_actions';
-// import { requestGroup } from '../../actions/group_actions';
 import EventIndex from './event_index';
 
 const mapStateToProps = state => ({
