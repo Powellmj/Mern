@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class UploadForm extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class UploadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    const formData = new FormData();
+    formData.append('')
   }
 
   handleFile(e) {
