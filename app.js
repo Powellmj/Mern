@@ -30,7 +30,7 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/groups", groups);
 app.use("/api/events", events);
-app.use("/api/uploads", fileRoutes);
+app.use("/api/upload", fileRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 const port = process.env.PORT || 5000;
