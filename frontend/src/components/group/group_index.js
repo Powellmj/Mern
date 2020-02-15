@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import GroupIndexItem from './group_index_item';
 
 class GroupIndex extends React.Component {
-  // may need another dispatch for groups in area?
   componentDidMount(){
     this.props.fetchAllGroups()
   }
@@ -14,10 +13,8 @@ class GroupIndex extends React.Component {
     return (
       <div className="groups-index">
         <div className="index-banner">
-          <Link to="/events">
-            <div className="index-banner-header" >Find your next simulation</div>
-            <div className="index-banner-text">2027 events near you</div>
-          </Link>
+          <div className="index-banner-header" >Find your next simulation</div>
+          <div className="index-banner-text">2027 events near you</div>
         </div>
         <div className="index-search-pos">
           <div className="index-search">
@@ -27,7 +24,6 @@ class GroupIndex extends React.Component {
           </div>
         </div>
         <div>
-          {/* displays 12 events in area */}
           <ul className="index-item-list">
             {
               this.props.groups.map((group, i) => {
@@ -61,7 +57,6 @@ class GroupIndex extends React.Component {
         </div>
         <hr />
         <div>
-          {/* all other groups in the area */}
           <ul className="index-item-list">
             {
               this.props.groups.map((group, i) => (

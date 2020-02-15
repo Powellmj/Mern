@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { HashLink as ALink } from 'react-router-hash-link';
 import EventIndexContainer from '../event/event_index_container';
 
 class GroupShow extends React.Component {
@@ -39,11 +40,11 @@ class GroupShow extends React.Component {
           </div>
             <div className="group-show-menus-bar">
               <div className="group-show-menus">
-                <div className="group-show-menu-item">About</div>
-                <div className="group-show-menu-item">Events</div>
-                <div className="group-show-menu-item">Members</div>
-                <div className="group-show-menu-item">Photos</div>
-                <div className="group-show-menu-item">Discussions</div>
+                <ALink className="group-show-menu-item" to={`/groups/${this.props.group._id}/#description`}>About</ALink>
+                <ALink className="group-show-menu-item"to={`/groups/${this.props.group._id}/#events`}>Events</ALink>
+                <ALink className="group-show-menu-item"to={`/groups/${this.props.group._id}/#members`}>Members</ALink>
+                <ALink className="group-show-menu-item"to={`/groups/${this.props.group._id}/#photos`}>Photos</ALink>
+                <ALink className="group-show-menu-item"to={`/groups/${this.props.group._id}/#discussions`}>Discussions</ALink>
               </div>
               <div className="group-show-join-button-panel">
               <div onClick={this.handleClick} className="group-show-button">Join this group</div>
@@ -57,8 +58,10 @@ class GroupShow extends React.Component {
             <div className="group-show-lower">
             <div className="group-show-lower-left">
               <div className="group-show-desc-container">
+              <a id="description">
               <div className="group-show-desc-title">What we're about</div>
               <div className="group-show-desc">{this.props.group.desc}</div>
+              </a>
               </div>
               <EventIndexContainer />
             </div>
