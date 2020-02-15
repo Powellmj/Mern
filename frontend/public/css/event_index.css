@@ -1,5 +1,6 @@
 .event-index {
-  width: 100%
+  width: 100%;
+  height: fit-content
 }
 
 .event-index-banner {
@@ -21,6 +22,16 @@
 
 .event-index-banner-see:hover {
   text-decoration: underline;
+}
+
+.event-list-future {
+  max-height: 1045px;
+  overflow: hidden;
+}
+
+.event-list-past {
+  max-height: 1045px;
+  overflow: hidden;
 }
 
 .event-index-item {

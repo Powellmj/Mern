@@ -147,7 +147,6 @@ class EventForm extends React.Component {
       <div className="create-group-form-container">
         <div className="create-group-header">
           <div className="create-group-progress-1"></div>
-          <div className="create-group-progress-1"></div>
           <div className="create-group-progress-2"></div>
           <div className="create-group-progress-3"></div>
           <div className="create-group-progress-4"></div>
@@ -157,17 +156,6 @@ class EventForm extends React.Component {
         <div className="create-group-form">
           <form onSubmit={this.handleSubmit}> 
             <div className="create-group-stage stage-1">
-              <div className="create-group-stage-header">First, set your simulations location.</div>
-              <div className="create-group-stage-text">
-                Meetin simulations meet virtually online. 
-                Let your group know where to connect you with and other members who live all around the world.</div>
-              <input className="group-form-input" type="text" 
-              value={this.state.location}
-              onChange={this.update('location')}
-              placeholder="Enter your virtual destination"
-              />
-            </div>
-            <div className="create-group-stage stage-2">
               <div className="create-group-stage-header">
                 What will your simulations name be?
               </div>
@@ -179,6 +167,17 @@ class EventForm extends React.Component {
               value={this.state.title}
               onChange={this.update('title')}
               placeholder="By any other name would smell as sweet."
+              />
+            </div>
+            <div className="create-group-stage stage-2">
+              <div className="create-group-stage-header">First, set your simulations location.</div>
+              <div className="create-group-stage-text">
+                Meetin simulations meet virtually online. 
+                Let your group know where to connect you with and other members who live all around the world.</div>
+              <input className="group-form-input" type="text" 
+              value={this.state.location}
+              onChange={this.update('location')}
+              placeholder="Enter your virtual destination"
               />
             </div>
             <div className="create-group-stage stage-3">
