@@ -147,7 +147,6 @@ class EventForm extends React.Component {
       <div className="create-group-form-container">
         <div className="create-group-header">
           <div className="create-group-progress-1"></div>
-          <div className="create-group-progress-1"></div>
           <div className="create-group-progress-2"></div>
           <div className="create-group-progress-3"></div>
           <div className="create-group-progress-4"></div>

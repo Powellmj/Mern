@@ -103,7 +103,6 @@ class GroupForm extends React.Component {
       <div className="create-group-form-container">
         <div className="create-group-header">
           <div className="create-group-progress-1"></div>
-          <div className="create-group-progress-1"></div>
           <div className="create-group-progress-2"></div>
           <div className="create-group-progress-3"></div>
           {`Step ${this.state.stage} of 3`}

@@ -26,7 +26,6 @@ class EventIndex extends React.Component {
       mm = '0' + mm;
     }
     var today = yyyy + '-' + mm + '-' + dd;
-    console.log(today)
 
     this.props.events.map(event => {
       if (new Date(today) < new Date(event.event_start)) {
