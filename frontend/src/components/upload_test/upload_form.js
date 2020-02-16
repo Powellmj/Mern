@@ -6,41 +6,40 @@ class UploadForm extends React.Component {
     super(props)
 
     this.state = {
-      title: "",
       imageFile: null
     }
 
-    this.handleInput = this.handleInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fileUpload = this.fileUpload.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
 
-  handleInput(e) {
-    this.setState({title: e.currentTarget.value})
-  }
-
-  handleSubmit(e) {
+  fileUpload(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('')
+    formData.append('image', this.state.imageFile, this.state.imageFile.name);
+    axios.post('/api/upload/', formData, {
+      headers: {
+        'accept': 'application/json',
+        'Accept-Language': 'en-US,en;q=0.8',
+        'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+      }
+    }).then(response => {
+      console.log(response)
+    });
   }
 
   handleFile(e) {
-    debugger
-    this.setState({imageFile: e.currentTarget.files[0]});
+    this.setState({imageFile: e.target.files[0]});
   }
 
   render() {
     console.log(this.state);
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="test" value={this.state.title} onChange={this.handleInput} />
-        <input type="file" 
-          onChange={this.handleFile}
-        />
-        <button>Upload</button>
-      </form>
-    )
+      <div>
+        <input type="file" onChange={this.handleFile} />
+        <button onClick={this.fileUpload}>Upload</button>
+      </div>
+    );
   }
 }
 
