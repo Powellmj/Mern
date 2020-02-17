@@ -15,7 +15,7 @@ router.patch('/:id', (req, res) => {
 
     const filter = { _id: req.params.id };
 
-    Group.findOneAndUpdate(filter, { "$set": { picture: req.file.location }})
+    Group.findOneAndUpdate(filter, { "$set": { picture: req.file.location }}, { new: true })
       .then(group => res.json(group))
 
     // return res.json({'imageURL': req.file.location});
