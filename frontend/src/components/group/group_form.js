@@ -49,21 +49,21 @@ class GroupForm extends React.Component {
     let button = document.querySelector('.create-group-stage-button')
     let subButton = document.querySelector('.group-form-submit')
 
-    if (this.state.stage === 1 && this.state.location) {
+    if (this.state.stage === 1 && this.state.title) {
       button.style.background = '#f65858';
       button.style.color = 'white';
       document.querySelector('.create-group-progress-1').style.display = "block"
-    } else if (this.state.stage === 1 && !this.state.location) {
+    } else if (this.state.stage === 1 && !this.state.title) {
       button.style.background = 'rgb(209, 209, 209)';
       button.style.color = 'gray';
       document.querySelector('.create-group-progress-1').style.display = "none"
     }
 
-    if (this.state.stage === 2 && this.state.title) {
+    if (this.state.stage === 2 && this.state.location) {
       button.style.background = '#f65858';
       button.style.color = 'white';
       document.querySelector('.create-group-progress-2').style.display = "block"
-    } else if (this.state.stage === 2 && !this.state.title) {
+    } else if (this.state.stage === 2 && !this.state.location) {
       button.style.background = 'rgb(209, 209, 209)';
       button.style.color = 'gray';
       document.querySelector('.create-group-progress-2').style.display = "none"

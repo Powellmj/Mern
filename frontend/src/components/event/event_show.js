@@ -100,7 +100,10 @@ class EventShow extends React.Component {
             { group ?
             (<Link to={`/groups/${group._id}`}>
               <div className="event-show-right-group">
-                  <div className="event-show-group-image"><i className="fa fa-camera"></i></div>
+                <div className="event-show-group-image" 
+                style={{ backgroundImage: `url(${this.props.group.picture})` }}>
+                  {this.props.group.picture ? null : (<i className="fa fa-camera"></i>)}
+                  </div>
                 <div className="event-show-right-group-header">
                   <div className="event-show-right-group-title">{group ? group.title : null}</div>
                   <div className="event-show-right-group-desc">Public Group</div>
