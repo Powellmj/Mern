@@ -7,7 +7,7 @@ const GroupIndexItem = (props) => {
   }
 
   return (
-    <div onClick={() => {handleClick(props.group.id)}} className="index-item">
+    <div onClick={() => {handleClick(props.group.id)}} className="index-item" backgroundimage={props.group.picture}>
       <div className="index-item-text">
         <div className="index-item-title">{props.group.title}</div>
         <div className="index-item-members">
