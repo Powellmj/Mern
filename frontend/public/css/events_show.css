@@ -230,10 +230,13 @@
   align-items: center;
   justify-content: center;
   height: 70px;
-  width: 70px;
+  width: 90px;
   background-color: rgb(219, 219, 219);
   border-radius: 5px;
   margin: 20px;
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .fa-camera {

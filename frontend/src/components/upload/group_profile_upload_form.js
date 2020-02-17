@@ -10,8 +10,6 @@ class GroupProfileUploadForm extends React.Component {
     }
 
     this.fileUpload = this.fileUpload.bind(this);
-    this.renderImage = this.renderImage.bind(this);
-    this.renderImageUploadBtn = this.renderImageUploadBtn.bind(this);
   }
 
   fileUpload(e) {
@@ -32,28 +30,10 @@ class GroupProfileUploadForm extends React.Component {
     window.location.reload();
   }
 
-  renderImage() {
-    if (this.props.group !== undefined) {
-      return <img src={this.props.group.picture} />;
-    } else {
-      return null
-    }
-  }
-
-  renderImageUploadBtn() {
-    if (this.props.currentUser.id === this.props.group.owner_id) {
-      return <input type="file" onChange={this.fileUpload} />
-    } else {
-      return null
-    }
-  }
-
   render() {
-    console.log(this.props)
     return (
       <div>
-        {this.renderImageUploadBtn()}
-        {this.renderImage()}
+        <input className="no-input" type="file" onChange={this.fileUpload} />
       </div>
     );
   }

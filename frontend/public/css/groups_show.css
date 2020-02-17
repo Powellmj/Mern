@@ -15,6 +15,9 @@
 }
 
 .group-show-picture {
+  background-position: center;
+  background-size: 650px;
+  background-repeat: no-repeat;
   background-color: teal;
   margin-right: 35px;
   border-radius: 10px;
@@ -66,6 +69,10 @@
   align-items: center;
   width: 400px;
   height: 60px;
+}
+
+.no-input {
+  display: none;
 }
 
 .group-show-button {
