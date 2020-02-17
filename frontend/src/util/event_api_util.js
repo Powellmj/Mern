@@ -12,3 +12,7 @@ export const fecthEvent = event_id =>
 export const createEvent = event => (
   axios.post('/api/events/', event)
 );
+
+export const joinEvent = (event_id, user_id) => (
+  axios.patch(`/api/events/${event_id}`, (event_id, user_id))
+)
