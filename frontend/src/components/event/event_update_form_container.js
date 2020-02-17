@@ -3,7 +3,8 @@ import { requestEvent, updateEvent } from '../../actions/event_actions';
 import EventUpdateForm from './event_update_form';
 
 const mapStateToProps = state => ({
-  event: state.entities.events
+  event: state.entities.events,
+  errors: state.errors.events
 });
 
 const mapDispatchToProps = dispatch => ({

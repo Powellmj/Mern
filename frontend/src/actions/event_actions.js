@@ -42,5 +42,5 @@ export const joinEvent = (event_id, user_id) => dispatch => EventAPIUtil.joinEve
   .then(response => dispatch(receiveEvent(response.data)))
 
 export const updateEvent = event => dispatch => EventAPIUtil.updateEvent(event)
-  .then(response => dispatch(receiveEvent(response.data)))
+  .then(event => dispatch(receiveEvent(event)))
   .catch(err => dispatch(receiveEventErrors(err)))

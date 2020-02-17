@@ -60,16 +60,10 @@ router.patch("/:id", (req, res) => {
     }
 );
 
-router.patch("/:id", (req, res) => {
+router.patch("/update/:id", (req, res) => {
   const filter = { _id: req.params.id };
-  Event.findByIdAndUpdate(filter, { "$set": {
-    title: req.body.title,
-    desc: req.body.desc,
-    location: req.body.location,
-    picture_id: req.body.picture_id,
-    event_start: req.body.event_start,
-    event_end: req.body.event_end
-  }}, { new: true })
+  const update = req.body;
+  Event.findOneAndUpdate(filter, update, { new: true })
     .then(event => res.json(event))
     .catch(err => res.status(400).json({ unabletoupdateevent: "Unable to update simulation" }))
 })
