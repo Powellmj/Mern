@@ -49,15 +49,11 @@ passport.authenticate('jwt', { session: false }),
       });
 });
 
-router.post("/:id",
-  passport.authenticate('jwt', { session: false }),
-    (req, res) => {
+router.patch("/:id", (req, res) => {
       // add logic later to check if user is a member of group
-      const filter = { _id: req.params.event_id };
-      Event.findOneAndUpdate(filter, { "$addToSet": {
-        attendees: (Object.keys(req.body)[0])
-      }}, { new: true })
-        .then(event => {
+      const filter = { _id: req.params.id };
+      Event.findOneAndUpdate(filter, { "$addToSet": { attendees: (Object.keys(req.body)[0]) }}, { new: true })
+      .then(event => {
           res.json(event)
         })
         .catch(err => res.status(400).json({ unabletojoinevent: "Unable join the simulation" }))
