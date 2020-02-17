@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { HashLink as ALink } from 'react-router-hash-link';
 import EventIndexContainer from '../event/event_index_container';
+import GroupProfileUploadForm from '../upload/group_profile_upload_form';
 
 class GroupShow extends React.Component {
   constructor(props) {
@@ -27,7 +28,9 @@ class GroupShow extends React.Component {
       return (
         <div className="group-show-container">
           <div className="group-show-overview">
-          <div className="group-show-picture"></div>
+          <div className="group-show-picture">
+            <GroupProfileUploadForm group={this.props.group} currentUser={this.props.currentUser}/>
+          </div>
             <div className="group-show-titlebox">
               <div className="group-show-title">{this.props.group.title}</div>
               <div className="group-show-info">{this.props.group.location}</div>
