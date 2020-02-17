@@ -36,3 +36,6 @@ export const newEvent = (event, cb) => dispatch => EventAPIUtil.createEvent(even
     cb(newEvent.data._id)
   })
   .catch(err => dispatch(receiveEventErrors(err.response.data)))
+
+export const joinEvent = (event_id, user_id) => dispatch => EventAPIUtil.joinEvent(event_id, user_id)
+  .then(response => dispatch(receiveEvent(response.data)))

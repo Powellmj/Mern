@@ -4,13 +4,20 @@ import { Link } from 'react-router-dom';
 class EventShow extends React.Component {
   constructor(props) {
     super(props)
+    
+    this.user = this.props.currentUser
 
     this.mapAttendees = this.mapAttendees.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount(){
     this.props.fetchEvent(this.props.match.params.event_id)
     this.props.fetchGroup(this.props.match.params.group_id)
+  }
+
+  handleClick(){
+    this.props.attendEvent(this.props.match.params.event_id, this.user.id)
   }
 
   mapAttendees() {
@@ -93,7 +100,10 @@ class EventShow extends React.Component {
             { group ?
             (<Link to={`/groups/${group._id}`}>
               <div className="event-show-right-group">
-                  <div className="event-show-group-image"><i className="fa fa-camera"></i></div>
+                <div className="event-show-group-image" 
+                style={{ backgroundImage: `url(${this.props.group.picture})` }}>
+                  {this.props.group.picture ? null : (<i className="fa fa-camera"></i>)}
+                  </div>
                 <div className="event-show-right-group-header">
                   <div className="event-show-right-group-title">{group ? group.title : null}</div>
                   <div className="event-show-right-group-desc">Public Group</div>
@@ -102,7 +112,7 @@ class EventShow extends React.Component {
             </Link>) : null }
             <div className="event-show-right-info">
               <div className="event-show-cat">
-                  <div><i class="fa fa-clock-o"></i></div>
+                  <div><i className="fa fa-clock-o"></i></div>
                 <div className="event-show-right-date">
                   <div>When: {dateDay}</div>
                   <div>Starting at: {event.start_time}</div>
@@ -110,7 +120,7 @@ class EventShow extends React.Component {
                 </div>
               </div>
               <div className="event-show-cat">
-              <div><i class="material-icons">place</i></div>
+              <div><i className="material-icons">place</i></div>
               <div className="event-show-location">Where: {event.location}</div>
               </div>
             </div>
@@ -128,7 +138,7 @@ class EventShow extends React.Component {
                 <div className="event-show-free">Free</div>
               </div>
               <div><i className="far fa-star"></i></div>
-              <div className="group-show-button attend-button">Attend</div>
+              <div><button className="group-show-button attend-button" onClick={this.handleClick}>Attend</button></div>
             </div>
           </div>
         </div>

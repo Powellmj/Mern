@@ -28,8 +28,7 @@ class GroupShow extends React.Component {
       return (
         <div className="group-show-container">
           <div className="group-show-overview">
-          <div className="group-show-picture">
-            <GroupProfileUploadForm group={this.props.group} currentUser={this.props.currentUser}/>
+            <div className="group-show-picture" style={{ backgroundImage: `url(${this.props.group.picture})` }}>
           </div>
             <div className="group-show-titlebox">
               <div className="group-show-title">{this.props.group.title}</div>
@@ -50,7 +49,11 @@ class GroupShow extends React.Component {
                 <ALink className="group-show-menu-item"to={`/groups/${this.props.group._id}/#discussions`}>Discussions</ALink>
               </div>
               <div className="group-show-join-button-panel">
-              <div onClick={this.handleClick} className="group-show-button">Join this group</div>
+              {this.props.currentUser.id === this.props.group.owner_id ? (
+              <label className="group-show-button" > Change Group Picture
+                <GroupProfileUploadForm group={this.props.group} currentUser={this.props.currentUser} />
+              </label>) : (
+              <div onClick={this.handleClick} className="group-show-button">Join this group</div>)}
               {this.props.currentUser.id === this.props.group.owner_id ? (
               <Link to={`/groups/${this.props.group._id}/create`}>
                 <div className="group-show-button group-plan">Plan an Event</div>
