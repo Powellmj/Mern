@@ -10,11 +10,13 @@ import GroupFormContainer from './group/group_form_container';
 import GroupShowContainer from './group/group_show_container';
 import EventFormContainer from './event/event_form_container';
 import EventShowContainer from './event/event_show_container';
+import EventUpdateFromContainer from './event/event_update_form_container';
 
 const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+      <ProtectedRoute exact path="/events/:event_id/update" component={EventUpdateFromContainer} />
       <AuthRoute exact path="/" component={splash_container} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
