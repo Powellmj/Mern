@@ -4,7 +4,7 @@ import EventIndex from './event_index';
 const EventIndexItem = ({ past, event }) => {
   let eventDate = (new Date(event.event_start)).toDateString();
   
-  var mapAttendees = [];
+  var mapAttendees = event.attendees || [];
   if (event.attendees.length <= 3) {
     mapAttendees = event.attendees.map(attendee => {
       return (<span className="event-index-profile-picture"><i className="fa fa-user"></i></span>)

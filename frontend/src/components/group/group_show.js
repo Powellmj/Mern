@@ -13,6 +13,7 @@ class GroupShow extends React.Component {
 
   componentDidMount() {
     this.props.requestGroup(this.props.match.params.group_id)
+    this.props.fetchAllEvents(this.props.match.params.group_id)
   }
 
   handleClick() {

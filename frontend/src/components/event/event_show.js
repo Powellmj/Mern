@@ -13,7 +13,6 @@ class EventShow extends React.Component {
 
   componentDidMount(){
     this.props.fetchEvent(this.props.match.params.event_id)
-    this.props.fetchGroup(this.props.match.params.group_id)
   }
 
   handleClick(){
@@ -21,8 +20,11 @@ class EventShow extends React.Component {
   }
 
   mapAttendees() {
+    if (this.props.event.attendees) {
+    }
+    
     var defaultArr = [
-      { name: "Invite your mom!" },
+      { name: "Invite your mom!", picture: "https://www.dailyherald.com/storyimage/DA/20160508/entlife/160509110/AR/0/AR-160509110.jpg&updated=201605061624&MaxW=900&maxH=900&noborder&Q=80"},
       { name: "Invite your friend!" },
       { name: "Invite your coworker!" },
       { name: "Invite your dog!" },
@@ -33,9 +35,11 @@ class EventShow extends React.Component {
     ]
 
     var attendeesArr = this.props.event.attendees || []
-    if (attendeesArr.length < 8) {
-      attendeesArr = attendeesArr.concat(defaultArr)
-    }
+    defaultArr.map(defaultAttendee => {
+      if (attendeesArr.length < 8) {
+        attendeesArr.push(defaultAttendee)
+      }
+    })
 
     return attendeesArr.map(attendee => {
       return (
