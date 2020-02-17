@@ -7,7 +7,7 @@ const users = require("./routes/api/users");
 const groups = require("./routes/api/groups");
 const events = require("./routes/api/events");
 const passport = require('passport');
-const fileRoutes = require("./routes/api/file_upload");
+const fileRoutes = require("./routes/api/group_profile_upload");
 var path = require('path');
 
 

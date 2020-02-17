@@ -10,12 +10,10 @@ import GroupFormContainer from './group/group_form_container';
 import GroupShowContainer from './group/group_show_container';
 import EventFormContainer from './event/event_form_container';
 import EventShowContainer from './event/event_show_container';
-import UploadForm from './upload_test/upload_form';
 
 const App = () => (
   <div>
     <NavBarContainer />
-    <Route path="/upload" component={UploadForm}/>
     <Switch>
       <AuthRoute exact path="/" component={splash_container} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

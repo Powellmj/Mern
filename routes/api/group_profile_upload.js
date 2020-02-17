@@ -5,7 +5,7 @@ const upload = require("../../services/file_upload");
 
 const singleUpload = upload.single('image');
 
-router.post('/', (req, res) => {
+router.patch('/:id', (req, res) => {
 
   singleUpload(req, res, (err) => {
 
@@ -13,7 +13,12 @@ router.post('/', (req, res) => {
       return res.status(422).send({errors: [{title: 'File Upload Error', detail: err.message}] });
     }
 
-    return res.json({'imageURL': req.file.location});
+    const filter = { _id: req.params.id };
+
+    Group.findOneAndUpdate(filter, { "$set": { picture: req.file.location }})
+      .then(group => res.json(group))
+
+    // return res.json({'imageURL': req.file.location});
   });
 });
 
