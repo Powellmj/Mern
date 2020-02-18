@@ -18,7 +18,10 @@ When visiting Meetin for the first time the user will need to login or signup in
 
 Users can create groups with a fluid process that guides the user through the steps.
 
-### Events
+![meetin_group_update_640](https://user-images.githubusercontent.com/52799217/74786514-bfb77c80-5261-11ea-89e1-9c58e028e1e8.gif)
+
+When the user wants to update their own group, they can click a dropdown and a modal will appear.
+
 ### Photo Uploads
 
 ### Technologies Used
