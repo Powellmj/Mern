@@ -151,6 +151,9 @@
   background-color: teal;
   border-radius: 10px;
   margin-bottom: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 600px;
 }
 
 .event-show-body-right-placeholder {

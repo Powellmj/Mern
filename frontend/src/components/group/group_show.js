@@ -36,8 +36,8 @@ class GroupShow extends React.Component {
               <div className="group-show-info"><i className="material-icons group-show-icon">place</i>{this.props.group.location}</div>
               <div className="group-show-info">
                 <i className="fa fa-users user-icon"></i>
-                {this.props.group.members.length}
-                {this.props.group.members.length === 1 ? " Member" : " Members"}
+                {this.props.group.members.length + 1}
+                {this.props.group.members.length + 1 === 1 ? " Member" : " Members"}
                 </div>
               <div className="group-show-info"><i className="fa fa-user user-icon-1"></i> Organized by {this.props.group.organizer}</div>
             </div>
