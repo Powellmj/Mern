@@ -55,72 +55,102 @@ class EventIndex extends React.Component {
     this.props.fetchAllEvents(this.props.group._id)
   }
 
-  renderImage() {
+  renderImage(i) {
     if (this.props.events.length !== 0) {
-      if (this.props.events[0].picture_id !== undefined) {
-        return <div
-          className="event-index-photo"
-          style={{ backgroundImage: `url(${this.props.events[0].picture_id})` }}
-        />
-      } else {
+      if (this.props.events[i] === undefined || this.props.events[i].picture_id === undefined) {
         return <div className="event-index-photo"><i className="fa fa-camera"></i></div>
+      } else {
+        return <div
+        className="event-index-photo"
+        style={{ backgroundImage: `url(${this.props.events[i].picture_id})` }}
+        />
       }
     }
   }
 
   render(){
+    console.log(this.props)
     if (!this.state.future.length && !this.state.past.length) {this.mapEvents()}
     return (
       <div className="event-index">
-          <a id="events"></a>
+        <a id="events"></a>
         <div className="event-index-banner">
-          <div className="event-index-banner-title">Upcoming simulations {
-          this.state.future.length ? `(${this.state.future.length})` : "(Keeping our options open)"}</div>
-          <div onClick={() => {this.handleExpand(".event-list-future")}} className="event-index-banner-see">See all</div>
+          <div className="event-index-banner-title">
+            Upcoming simulations{" "}
+            {this.state.future.length
+              ? `(${this.state.future.length})`
+              : "(Keeping our options open)"}
+          </div>
+          <div
+            onClick={() => {
+              this.handleExpand(".event-list-future");
+            }}
+            className="event-index-banner-see"
+          >
+            See all
+          </div>
         </div>
         <ul className="event-list-future">
           {this.state.future.map(event => {
             return (
               <li key={event._id}>
-                <Link to={`/groups/${this.props.group._id}/events/${event._id}`}>
+                <Link
+                  to={`/groups/${this.props.group._id}/events/${event._id}`}
+                >
                   <EventIndexItem event={event} past={false} />
                 </Link>
               </li>
-            )}
-          )}
+            );
+          })}
         </ul>
         <div className="event-index-banner">
-          <div className="event-index-banner-title">Past simulations {
-          this.state.past.length ? `(${this.state.past.length})` : "(Clean slate!)"}</div>
-          <div onClick={() => {this.handleExpand(".event-list-past")}} className="event-index-banner-see">See all</div>
+          <div className="event-index-banner-title">
+            Past simulations{" "}
+            {this.state.past.length
+              ? `(${this.state.past.length})`
+              : "(Clean slate!)"}
+          </div>
+          <div
+            onClick={() => {
+              this.handleExpand(".event-list-past");
+            }}
+            className="event-index-banner-see"
+          >
+            See all
+          </div>
         </div>
         <ul className="event-list-past">
           {this.state.past.map(event => {
             return (
-            <li key={event._id}>
-              <Link to={`/groups/${this.props.group._id}/${event._id}`}>
-                <EventIndexItem event={event} past={true} />
-              </Link>
-            </li>
-          )})}
+              <li key={event._id}>
+                <Link to={`/groups/${this.props.group._id}/${event._id}`}>
+                  <EventIndexItem event={event} past={true} />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
-            <a id="photos"></a>
-          <div className="event-index-banner">
-            <div className="event-index-banner-title">Photos {this.props.group.picture ? '(1)' : '(None yet!)'}</div>
-            <div className="event-index-banner-see">See all</div>
-          </div>
-          <div className="event-index-photos">
-            {this.renderImage()}
-            <div className="event-index-photo"><i className="fa fa-camera"></i></div>
-            <div className="event-index-photo"><i className="fa fa-camera"></i></div>
-          </div>
-          <a id="discussions"></a>
+        <a id="photos"></a>
         <div className="event-index-banner">
-          <div className="event-index-banner-title">Discussions (Quiet in here...)</div>
+          <div className="event-index-banner-title">
+            Photos {this.props.events.length === 0 ? "(None yet!)" : `(${this.props.events.length})`}
+          </div>
+          <div className="event-index-banner-see">See all</div>
+        </div>
+        <div className="event-index-photos">
+          {this.renderImage(0)}
+          {this.renderImage(1)}
+          {this.renderImage(2)}
+        </div>
+        <a id="discussions"></a>
+        <div className="event-index-banner">
+          <div className="event-index-banner-title">
+            Discussions (Quiet in here...)
+          </div>
           <div className="event-index-banner-see">See all</div>
         </div>
       </div>
-    )
+    );
   }
 };
 
