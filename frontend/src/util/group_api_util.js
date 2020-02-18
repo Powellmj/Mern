@@ -15,3 +15,6 @@ export const createGroup = data => {
 export const joinGroup = (group_id, user_id) => {
   return axios.patch(`/api/groups/${group_id}`, (group_id, user_id))
 }
+
+export const updateGroup = group =>
+  axios.patch(`/api/groups/update/${group._id}`, group)

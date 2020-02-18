@@ -33,3 +33,7 @@ export const createGroup = group => dispatch => (
 
 export const joinGroup = (group_id, user_id) => dispatch => {
   return APIUtil.joinGroup(group_id, user_id)}
+
+export const updateGroup = group => dispatch => APIUtil.updateGroup(group)
+  .then(group => dispatch(receiveGroup(group.data)))
+  .catch(err => console.log(err))
