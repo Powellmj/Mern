@@ -12,8 +12,8 @@ class EventShow extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  componentDidMount(){
-    this.props.fetchEvent(this.props.match.params.event_id)
+  componentDidMount() {
+    this.props.fetchEvent(this.props.match.params.event_id).then(response => {this.props.fetchGroup(response.event.group_id)})
   }
 
   handleClick(){
@@ -80,7 +80,7 @@ class EventShow extends React.Component {
                 <i className="fas fa-share"></i>
                 <div className="event-show-host-share-detail">Share</div>
               </div>
-              {group.organizer === this.props.currentUser.name ? this.props.updateEvent : null}
+              {group ? group.organizer === this.props.currentUser.name ? this.props.updateEvent : null : null}
             </div>
           </div>
         </div>

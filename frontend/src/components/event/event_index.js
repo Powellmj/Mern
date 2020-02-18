@@ -53,6 +53,12 @@ class EventIndex extends React.Component {
 
   renderImage(i) {
     if (this.props.events.length !== 0) {
+      if (i === -1) {
+        return <div
+          className="event-index-photo"
+          style={{ backgroundImage: `url(${this.props.group.picture})` }}
+        />
+      }
       if (this.props.events[i] === undefined || this.props.events[i].picture_id === undefined) {
         return (
           <div className="event-index-photo"><i className="fa fa-camera"></i></div>
@@ -134,9 +140,9 @@ class EventIndex extends React.Component {
           <div className="event-index-banner-see">See all</div>
         </div>
         <div className="event-index-photos">
+          {this.renderImage(-1)}
           {this.renderImage(0)}
           {this.renderImage(1)}
-          {this.renderImage(2)}
         </div>
         <a id="discussions"></a>
         <div className="event-index-banner">
