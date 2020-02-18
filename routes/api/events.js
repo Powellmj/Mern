@@ -3,7 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Event = require('../../models/Event');
 const Group = require('../../models/Group');
-const User = require('../../models/User');
 const passport = require('passport');
 const validateEventInput = require('../../validation/event');
 

@@ -21,26 +21,27 @@ class EventShow extends React.Component {
   }
 
   mapAttendees() {
-    if (this.props.event.attendees) {
-    }
-    
-    var defaultArr = [
-      { name: "Invite your mom!", picture: "https://vignette.wikia.nocookie.net/simpsons/images/0/0b/Marge_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20190409004747"},
-      { name: "Invite your friend!", picture: "https://i.ya-webdesign.com/images/barney-head-png-9.png"},
-      { name: "Invite your coworker!", picture: "https://www.geek.com/wp-content/uploads/2016/03/velma.jpg"},
-      { name: "Invite your dog!", picture: "https://vignette.wikia.nocookie.net/disney/images/7/7b/Pluto.PNG/revision/latest/top-crop/width/360/height/450?cb=20170628205507"},
-      { name: "Invite your long lost cousin!", picture: "https://slm-assets.secondlife.com/assets/21404892/view_large/angelica.jpg?1535218951" },
-      { name: "Invite your pet rock!", picture: "https://vignette.wikia.nocookie.net/spongebob/images/4/45/Pete_the_rock.png/revision/latest?cb=20141115223905" },
-      { name: "Invite your frenemy!", picture: "https://i.pinimg.com/236x/31/16/aa/3116aaa3ef1e991aa78a079a8081b876--best-cartoons-famous-cartoons.jpg"},
-      { name: "Invite your crush!", picture: "https://media.altpress.com/uploads/2018/06/Hey_Arnold_-_News_717-463-2.jpg" }
-    ]
+    // if (!this.props.event.attendees) {
+    // }
+      var defaultArr = [
+        { name: "Invite your mom!", picture: "https://vignette.wikia.nocookie.net/simpsons/images/0/0b/Marge_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20190409004747"},
+        { name: "Invite your friend!", picture: "https://i.ya-webdesign.com/images/barney-head-png-9.png"},
+        { name: "Invite your coworker!", picture: "https://www.geek.com/wp-content/uploads/2016/03/velma.jpg"},
+        { name: "Invite your dog!", picture: "https://vignette.wikia.nocookie.net/disney/images/7/7b/Pluto.PNG/revision/latest/top-crop/width/360/height/450?cb=20170628205507"},
+        { name: "Invite your long lost cousin!", picture: "https://slm-assets.secondlife.com/assets/21404892/view_large/angelica.jpg?1535218951" },
+        { name: "Invite your pet rock!", picture: "https://vignette.wikia.nocookie.net/spongebob/images/4/45/Pete_the_rock.png/revision/latest?cb=20141115223905" },
+        { name: "Invite your frenemy!", picture: "https://i.pinimg.com/236x/31/16/aa/3116aaa3ef1e991aa78a079a8081b876--best-cartoons-famous-cartoons.jpg"},
+        { name: "Invite your crush!", picture: "https://media.altpress.com/uploads/2018/06/Hey_Arnold_-_News_717-463-2.jpg" }
+      ]
+      var attendeesArr = this.props.event.attendees || []
 
-    var attendeesArr = this.props.event.attendees || []
-    defaultArr.map(defaultAttendee => {
-      if (attendeesArr.length < 8) {
-        attendeesArr.push(defaultAttendee)
-      }
-    })
+      if(!defaultArr) {
+      defaultArr.map(defaultAttendee => {
+        if (attendeesArr.length < 8) {
+          attendeesArr.push(defaultAttendee)
+        }
+      })
+    }
 
     return attendeesArr.map((attendee, idx) => {
       return (
