@@ -13,6 +13,7 @@ class EventIndex extends React.Component {
 
     this.mapEvents = this.mapEvents.bind(this)
     this.handleExpand = this.handleExpand.bind(this)
+    this.renderImage = this.renderImage.bind(this)
   }
 
   mapEvents() {
@@ -52,6 +53,19 @@ class EventIndex extends React.Component {
 
   componentDidMount(){
     this.props.fetchAllEvents(this.props.group._id)
+  }
+
+  renderImage() {
+    if (this.props.events.length !== 0) {
+      if (this.props.events[0].picture_id !== undefined) {
+        return <div
+          className="event-index-photo"
+          style={{ backgroundImage: `url(${this.props.events[0].picture_id})` }}
+        />
+      } else {
+        return <div className="event-index-photo"><i className="fa fa-camera"></i></div>
+      }
+    }
   }
 
   render(){
@@ -96,10 +110,10 @@ class EventIndex extends React.Component {
             <div className="event-index-banner-see">See all</div>
           </div>
           <div className="event-index-photos">
+            {this.renderImage()}
             <div className="event-index-photo"><i className="fa fa-camera"></i></div>
             <div className="event-index-photo"><i className="fa fa-camera"></i></div>
-            <div className="event-index-photo"><i className="fa fa-camera"></i></div>
-        </div>
+          </div>
           <a id="discussions"></a>
         <div className="event-index-banner">
           <div className="event-index-banner-title">Discussions (Quiet in here...)</div>

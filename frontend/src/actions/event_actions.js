@@ -28,7 +28,7 @@ export const requestAllEvents = group_id => dispatch => EventAPIUtil.fetchAllEve
   .then(events => dispatch(receiveAllEvents(events)))
 
 export const requestEvent = event_id => dispatch => EventAPIUtil.fecthEvent(event_id)
-  .then(event => dispatch(receiveEvent(event)))
+  .then(event => dispatch(receiveEvent(event.data)))
 
 export const newEvent = (event, cb) => dispatch => EventAPIUtil.createEvent(event)
   .then(newEvent => {

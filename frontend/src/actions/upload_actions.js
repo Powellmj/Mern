@@ -5,11 +5,10 @@ export const receiveGroup = group => ({
   group
 });
 
-
 export const uploadGroupProfileImage = (data, group_id) => dispatch => {
   return (
     axios
-      .patch(`/api/upload/${group_id}`, data, {
+      .patch(`/api/upload/group/${group_id}`, data, {
         headers: {
           accept: "application/json",
           "Accept-Language": "en-US,en;q=0.8",
@@ -18,4 +17,21 @@ export const uploadGroupProfileImage = (data, group_id) => dispatch => {
       })
       .then(response => dispatch(receiveGroup(response.data)))
   )
+};
+
+export const receiveEvent = event => ({
+  type: "RECEIVE_EVENT",
+  event
+});
+
+export const uploadEventProfileImage = (data, event_id) => dispatch => {
+  return axios
+    .patch(`/api/upload/event/${event_id}`, data, {
+      headers: {
+        accept: "application/json",
+        "Accept-Language": "en-US,en;q=0.8",
+        "Content-Type": `multipart/form-data; boundary=${data._boundary}`
+      }
+    })
+    .then(response => dispatch(receiveEvent(response.data)));
 };
