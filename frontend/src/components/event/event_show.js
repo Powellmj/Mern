@@ -24,7 +24,7 @@ class EventShow extends React.Component {
     }
     
     var defaultArr = [
-      { name: "Invite your mom!", picture: "https://www.dailyherald.com/storyimage/DA/20160508/entlife/160509110/AR/0/AR-160509110.jpg&updated=201605061624&MaxW=900&maxH=900&noborder&Q=80"},
+      { name: "Invite your mom!"},
       { name: "Invite your friend!" },
       { name: "Invite your coworker!" },
       { name: "Invite your dog!" },
@@ -84,7 +84,8 @@ class EventShow extends React.Component {
         </div>
         <div className="event-show-body">
           <div className="event-show-body-left">
-          <div className="event-show-image"></div>
+            <div className="event-show-image" 
+            style={{ backgroundImage: this.props.event.picture ? `url(${this.props.event.picture})` : null }}></div>
           <div className="event-show-details">
             <div className="event-show-details-title">Details</div>
             <div className="event-show-details-desc">{event.desc}</div>
@@ -124,7 +125,7 @@ class EventShow extends React.Component {
                 </div>
               </div>
               <div className="event-show-cat">
-              <div><i className="material-icons">place</i></div>
+              <div><i className="material-icons event-show-icon">place</i></div>
               <div className="event-show-location">Where: {event.location}</div>
               </div>
             </div>

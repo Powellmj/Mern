@@ -168,6 +168,9 @@
 }
 
 .event-index-photo {
+  background-position: center;
+  background-size: 220px;
+  background-repeat: no-repeat;
   display: inline-block;
   background-color: white;
   padding: 60px 72px;

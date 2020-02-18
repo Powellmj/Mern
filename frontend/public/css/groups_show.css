@@ -120,6 +120,19 @@
   font-weight: bold;
 }
 
+.group-show-icon {
+  margin-left: -4px;
+}
+
+.user-icon {
+  margin-right: 5px;
+}
+
+.user-icon-1 {
+  margin-left: 3px;
+  margin-right: 5px;
+}
+
 .group-show-desc {
   overflow: hidden;
   position: relative;

@@ -92,11 +92,11 @@ class EventIndex extends React.Component {
         </ul>
             <a id="photos"></a>
           <div className="event-index-banner">
-            <div className="event-index-banner-title">Photos (None yet!)</div>
+            <div className="event-index-banner-title">Photos {this.props.group.picture ? '(1)' : '(None yet!)'}</div>
             <div className="event-index-banner-see">See all</div>
           </div>
           <div className="event-index-photos">
-            <div className="event-index-photo"><i className="fa fa-camera"></i></div>
+            <div className="event-index-photo" style={{ backgroundImage: `url(${this.props.group.picture})` }}>{ this.props.group.picture ? null : <i className="fa fa-camera"></i>}</div>
             <div className="event-index-photo"><i className="fa fa-camera"></i></div>
             <div className="event-index-photo"><i className="fa fa-camera"></i></div>
         </div>
