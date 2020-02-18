@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom'
 
 class Splash extends React.Component {
 
-  handleClick() {
-    alert("Sorry, no one taught me how to do anything yet!")
-  }
-
   render() {
     const demo = {
       email: 'Morpheus@gmail.com',
@@ -29,12 +25,12 @@ class Splash extends React.Component {
           </div>
         </div>
         <div className="splash-topic-bar">
-          <div onClick={this.handleClick} className="splash-topic">Join a movement</div>
-          <div onClick={this.handleClick} className="splash-topic">Learn to cook</div>
-          <div onClick={this.handleClick} className="splash-topic">Train for a marathon</div>
-          <div onClick={this.handleClick} className="splash-topic">Build a mobile app</div>
-          <div onClick={this.handleClick} className="splash-topic">Hike a mountain</div>
-          <div onClick={this.handleClick} className="splash-topic">Practice a language</div>
+          <Link className="splash-topic" to={'/signup'}>Join a movement</Link>
+          <Link className="splash-topic" to={'/signup'}>Learn to cook</Link>
+          <Link className="splash-topic" to={'/signup'}>Train for a marathon</Link>
+          <Link className="splash-topic" to={'/signup'}>Build a mobile app</Link>
+          <Link className="splash-topic" to={'/signup'}>Hike a mountain</Link>
+          <Link className="splash-topic" to={'/signup'}>Practice a language</Link>
         </div>
       </div>
     );

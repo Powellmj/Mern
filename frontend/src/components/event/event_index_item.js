@@ -5,8 +5,9 @@ const EventIndexItem = ({ past, event }) => {
   let eventDate = (new Date(event.event_start)).toDateString();
   
   var mapAttendees = event.attendees || [];
-  if (event.attendees.length <= 3) {
-    mapAttendees = event.attendees.map(attendee => {
+  var defaultArr = event.attendees.concat([{}])
+  if (event.attendees.length + 1 <= 3) {
+    mapAttendees = defaultArr.map(attendee => {
       return (<span key={attendee} className="event-index-profile-picture"><i className="fa fa-user"></i></span>)
     })
   } else if (event.attendees.length > 3) {
@@ -38,7 +39,7 @@ const EventIndexItem = ({ past, event }) => {
           </div>
           <div className="event-index-item-attend-box">
             <div className="event-index-item-pictures"> 
-            <span className="event-index-item-attendees"> {event.attendees.length} {event.attendees.length === 1 ? "Attendee" : "Attendees" }</span>
+            <span className="event-index-item-attendees"> {event.attendees.length + 1} {event.attendees.length + 1 === 1 ? "Attendee" : "Attendees" }</span>
             {mapAttendees}
             </div>
             {past ? null : (

@@ -55,13 +55,13 @@ class GroupShow extends React.Component {
               <label className="group-show-button" > Change Group Picture
                 <GroupProfileUploadForm group={this.props.group} currentUser={this.props.currentUser} />
               </label>) : (
-              <div onClick={this.handleClick} className="group-show-button">Join this group</div>)}
+                <div onClick={this.handleClick} className="group-show-button">Join this group</div>)}
+              {this.props.currentUser.id === this.props.group.owner_id ? (this.props.updateGroup) : null}
               {this.props.currentUser.id === this.props.group.owner_id ? (
-              <Link to={`/groups/${this.props.group._id}/create`}>
+                <Link to={`/groups/${this.props.group._id}/create`}>
                 <div className="group-show-button group-plan">Plan an Event</div>
               </Link>
               ) : null }
-              {this.props.updateGroup}
             </div>
           </div>
             <div className="group-show-lower">
