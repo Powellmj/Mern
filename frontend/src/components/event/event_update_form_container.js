@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { requestEvent, updateEvent } from '../../actions/event_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import EventUpdateForm from './event_update_form';
 
 const mapStateToProps = state => ({

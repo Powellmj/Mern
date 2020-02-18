@@ -11,9 +11,11 @@ import GroupShowContainer from './group/group_show_container';
 import EventFormContainer from './event/event_form_container';
 import EventShowContainer from './event/event_show_container';
 import EventUpdateFromContainer from './event/event_update_form_container';
+import Modal from './modal/modal';
 
 const App = () => (
   <div>
+    <Modal />
     <NavBarContainer />
     <Switch>
       <ProtectedRoute exact path="/events/:event_id/update" component={EventUpdateFromContainer} />

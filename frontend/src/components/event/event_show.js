@@ -83,7 +83,7 @@ class EventShow extends React.Component {
                 <i className="fas fa-share"></i>
                 <div className="event-show-host-share-detail">Share</div>
               </div>
-              <button>delete simulation</button>
+              {this.props.updateEvent}
             </div>
           </div>
         </div>
