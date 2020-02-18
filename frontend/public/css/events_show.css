@@ -304,6 +304,9 @@
   border-radius: 50%;
   background-color: rgb(230, 230, 230);
   color: gray;
+  background-position: center;
+  background-size: 80px;
+  background-repeat: no-repeat;
 }
 
 .event-show-attendee {
