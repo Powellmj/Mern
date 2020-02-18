@@ -9,8 +9,15 @@ Designed to be an alternative to Meetup, Meetin shares many of the same core fea
 - [Design Documents](https://github.com/Powellmj/Mern/wiki)
 
 ## Features
-### Authentication
+### Authentication![meetin_signup](https://user-images.githubusercontent.com/52799217/74783534-bf67b300-525a-11ea-8bca-831a92fb7f33.png)
+
+When visiting Meetin for the first time the user will need to login or signup in order to access the features. If they don't have an account or don't wish to make one, they can select 'Demo Login' on either the login or signup form.
+
 ### Groups
+![meetin_group_create](https://user-images.githubusercontent.com/52799217/74784247-5b45ee80-525c-11ea-9ea1-c4b66ae43c49.gif)
+
+Users can create groups with a fluid process that guides the user through the steps.
+
 ### Events
 ### Photo Uploads
 
@@ -21,5 +28,5 @@ Meetin is built using MongoDB, Express.js, React with Redux, Node.js
 - Group deletion - group owner can delete their groups
 - Discussions - group members can post comments in a discussion
 - Event deletion - event owner can delete their own events
-- Calender - users are able to see events on a calender
+- Calendar - users are able to see events on a calendar
 - Search - users can look for events by category and location radius
