@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EventProfilePic from '../upload/event_profile_upload_form';
 
 class EventShow extends React.Component {
   constructor(props) {
@@ -85,8 +86,9 @@ class EventShow extends React.Component {
         </div>
         <div className="event-show-body">
           <div className="event-show-body-left">
-            <div className="event-show-image" 
-            style={{ backgroundImage: this.props.event.picture ? `url(${this.props.event.picture})` : null }}></div>
+          <div className="event-show-image" style={{ backgroundImage: `url(${this.props.event.picture_id})` }}>
+            <EventProfilePic event={this.props.event}/>
+          </div>
           <div className="event-show-details">
             <div className="event-show-details-title">Details</div>
             <div className="event-show-details-desc">{event.desc}</div>
