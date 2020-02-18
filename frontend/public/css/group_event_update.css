@@ -1,0 +1,68 @@
+.group-update-form-container {
+  background-color: white;
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
+}
+
+.event-update-form {
+  height: 710px;
+}
+
+.group-update-header {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.group-update-form {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group-update-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 25px;
+  text-align: start;
+  color: rgb(56, 56, 56);
+  margin-top: 10px;
+}
+
+.group-update-form input, .group-update-form textarea {
+  width: 900px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 16px;
+  background-color: rgb(247, 245, 245);
+}
+
+.group-update-form textarea {
+  height: 300px;
+  max-width: 900px;
+}
+
+.group-update-form-title {
+
+}
+
+.group-update-cancel {
+  position: relative;
+  bottom: 50px;
+  left: 25px;
+  margin-top: 6px;
+}
+
+.group-update-submit {
+  position: relative;
+  bottom: 0px;
+  right: -240px;
+  margin-top: 20px;
+}

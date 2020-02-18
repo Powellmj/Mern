@@ -44,7 +44,7 @@ class GroupIndex extends React.Component {
             {
               this.props.linkTitles.map((title, i) => (
                 <li key={i} className={`index-link index-link-${i}`}>
-                  <Link to={`/${links[i]}`}>
+                  <Link to={`/groups/create`}>
               <div className="index-link-title">{title}</div>
               <div className="index-link-learn">Learn how</div>
                   </Link>

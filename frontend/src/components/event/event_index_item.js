@@ -5,8 +5,9 @@ const EventIndexItem = ({ past, event }) => {
   let eventDate = (new Date(event.event_start)).toDateString();
   
   var mapAttendees = event.attendees || [];
+  var defaultArr = event.attendees
   if (event.attendees.length <= 3) {
-    mapAttendees = event.attendees.map(attendee => {
+    mapAttendees = defaultArr.map(attendee => {
       return (<span key={attendee} className="event-index-profile-picture"><i className="fa fa-user"></i></span>)
     })
   } else if (event.attendees.length > 3) {

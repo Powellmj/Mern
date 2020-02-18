@@ -11,8 +11,8 @@ const GroupIndexItem = (props) => {
       <div className="index-item-text">
         <div className="index-item-title">{props.group.title}</div>
         <div className="index-item-members">
-          {props.group.members.length}
-          {props.group.members.length === 1 ? " Member" : " Members"}
+          {props.group.members.length + 1}
+          {props.group.members.length + 1 === 1 ? " Member" : " Members"}
         </div>
       </div>
     </div>
