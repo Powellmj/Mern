@@ -18,7 +18,6 @@ const App = () => (
     <Modal />
     <NavBarContainer />
     <Switch>
-      <ProtectedRoute exact path="/events/:event_id/update" component={EventUpdateFromContainer} />
       <AuthRoute exact path="/" component={splash_container} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

@@ -33,7 +33,7 @@ class EventUpdateForm extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchEvent(this.props.match.params.event_id)
+    this.props.fetchEvent(this.props.event.id)
     this.setState({
       title: this.props.event.title,
       desc: this.props.event.desc,
@@ -41,12 +41,10 @@ class EventUpdateForm extends React.Component {
       event_start: this.props.event.event_start,
       event_end: this.props.event.event_end
     })
-    console.log(this.state)
   }
 
   // to fix after
   renderErrors(){
-    console.log(this.props)
     return(
       <ul>
         {
@@ -59,8 +57,8 @@ class EventUpdateForm extends React.Component {
   }
 
   render(){
-    let start_date = this.state.event_start.toString().slice(0,16)
-    let end_date = this.state.event_end.toString().slice(0,16)
+    let start_date = this.state.event_start
+    let end_date = this.state.event_end
     return(
       <div className="event-form-container">
         {this.renderErrors()}
@@ -69,20 +67,20 @@ class EventUpdateForm extends React.Component {
             value={this.state.title}
             onChange={this.handleInput('title')} />
 
-          <input className="event-form-desc" placeholder="simulation name" type="text"
+          <input className="event-form-desc" placeholder="simulation description" type="text"
             value={this.state.desc}
             onChange={this.handleInput('desc')} />
 
-          <input className="event-form-location" placeholder="simulation name" type="text"
+          <input className="event-form-location" placeholder="simulation location" type="text"
             value={this.state.location}
             onChange={this.handleInput('location')} />
 
-          <input className="event-form-event_start" placeholder="simulation name" type="datetime-local"
+          <input className="event-form-event_start" type="datetime-local"
             value={start_date}
             onChange={this.handleInput('event_start')}
             min="2020-02-17T13:41" max="2025-01-01T00:00" />
 
-          <input className="event-form-event_end" placeholder="simulation name" type="datetime-local"
+          <input className="event-form-event_end" type="datetime-local"
             value={end_date}
             onChange={this.handleInput('event_end')}
             min="2020-02-17T13:41" max="2025-01-01T00:00" />

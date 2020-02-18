@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
   updateEvent: (
     <button className="event-form-update-button" onClick={() => dispatch(openModal("eventUpdate"))}>
       Update simulation
-      </button>
+    </button>
   ),
   closeModal: () => dispatch(closeModal)
 });
