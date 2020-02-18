@@ -7,7 +7,8 @@ import GroupShow from './group_show';
 
 const mapStateToProps = (state) => ({
   group: state.entities.groups.currentGroup,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  members: state.entities.groups.members
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,10 +1,10 @@
 import * as EventAPIUtil from '../util/event_api_util';
-// import { response } from 'express';
 
 export const RECEIVE_ALL_EVENTS = 'RECEIVE_ALL_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
 export const CLEAR_EVENT_ERRORS = 'CLEAR_EVENT_ERRORS';
+export const RECEIVE_EVENT_ATTENDEES = 'RECEIVE_EVENT_ATTENDEES';
 
 const receiveAllEvents = events => ({
   type: RECEIVE_ALL_EVENTS,
@@ -23,6 +23,11 @@ const receiveEventErrors = errors => ({
 
 export const clearEventErrors = () => ({
   type: CLEAR_EVENT_ERRORS
+});
+
+const receiveEventAttendees = eventAttendees => ({
+  type: RECEIVE_EVENT_ATTENDEES,
+  eventAttendees
 });
 
 export const requestAllEvents = group_id => dispatch => EventAPIUtil.fetchAllEvents(group_id)

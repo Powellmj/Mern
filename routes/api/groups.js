@@ -15,6 +15,10 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   Group.findById((req.params.id))
+    .populate({
+      path: 'members',
+      select: ['name', 'email']
+    })
     .then(group => res.json(group))
     .catch(err =>
       res.status(404).json({ nogroupfound: 'No group found with that ID' })
