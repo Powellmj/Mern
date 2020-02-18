@@ -36,7 +36,7 @@ const GroupSchema = new Schema({
   }],
   members: [{
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'User'
   }]
 })
 

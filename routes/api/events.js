@@ -17,6 +17,10 @@ router.get("/", (req, res) => (
 
 router.get("/:id", (req, res) => (
   Event.findById(req.params.id)
+    .populate({
+      path: 'attendees',
+      select: ['name', 'email']
+    })
     .then(event => res.json(event))
     .catch(err => res.status(404).json({ noeventfound: "No event found" }))
 ))

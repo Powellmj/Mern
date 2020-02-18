@@ -69,7 +69,6 @@ class EventIndex extends React.Component {
   }
 
   render(){
-    console.log(this.props)
     if (!this.state.future.length && !this.state.past.length) {this.mapEvents()}
     return (
       <div className="event-index">
