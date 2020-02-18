@@ -14,6 +14,7 @@ export const receiveGroup = group => ({
 
 export const requestAllGroups = () => dispatch => APIUtil.fetchAllGroups()
   .then(groups => dispatch(receiveAllGroups(groups.data)))
+  
 export const RECEIVE_GROUP = "RECEIVE_GROUP";
 
 
