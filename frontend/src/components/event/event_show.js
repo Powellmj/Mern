@@ -55,6 +55,7 @@ class EventShow extends React.Component {
   }
 
   render(){
+    console.log(this.props)
     const event = this.props.event;
     const group = this.props.group;
     const dateDay = (new Date(event.date)).toDateString();

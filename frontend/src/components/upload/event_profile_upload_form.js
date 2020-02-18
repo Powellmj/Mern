@@ -21,7 +21,6 @@ class EventProfileUploadForm extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <input className="no-input" type="file" onChange={this.fileUpload} />

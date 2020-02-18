@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Event = require('../../models/Event');
 const Group = require('../../models/Group');
+const User = require('../../models/User');
 const passport = require('passport');
 const validateEventInput = require('../../validation/event');
 
@@ -17,6 +18,10 @@ router.get("/", (req, res) => (
 
 router.get("/:id", (req, res) => (
   Event.findById(req.params.id)
+    .populate({
+      path: 'attendees',
+      select: ['name', 'email']
+    })
     .then(event => res.json(event))
     .catch(err => res.status(404).json({ noeventfound: "No event found" }))
 ))
