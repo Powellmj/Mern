@@ -4,3 +4,22 @@ Meetin is a platform that allows users to connect with others by creating groups
 
 Designed to be an alternative to Meetup, Meetin shares many of the same core features. Users will appreciate the ease of use and familiarity that Meetin provides.
 
+### Useful Links
+- [Live Site](https://meetin-mern.herokuapp.com/)
+- [Design Documents](https://github.com/Powellmj/Mern/wiki)
+
+## Features
+### Authentication
+### Groups
+### Events
+### Photo Uploads
+
+### Technologies Used
+Meetin is built using MongoDB, Express.js, React with Redux, Node.js
+
+## Feature Roadmap
+- Group deletion - group owner can delete their groups
+- Discussions - group members can post comments in a discussion
+- Event deletion - event owner can delete their own events
+- Calender - users are able to see events on a calender
+- Search - users can look for events by category and location radius
