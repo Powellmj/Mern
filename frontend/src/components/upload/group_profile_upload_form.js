@@ -1,5 +1,6 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { uploadGroupProfileImage } from '../../actions/upload_actions';
 
 class GroupProfileUploadForm extends React.Component {
   constructor(props) {
@@ -16,18 +17,7 @@ class GroupProfileUploadForm extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append('image', e.target.files[0], e.target.files[0].name);
-    axios
-      .patch(`/api/upload/${this.props.group._id}`, formData, {
-        headers: {
-          accept: "application/json",
-          "Accept-Language": "en-US,en;q=0.8",
-          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`
-        }
-      })
-      .then(response => {
-        console.log(response);
-      });
-    window.location.reload();
+    this.props.upload(formData, this.props.group._id)
   }
 
   render() {
@@ -39,4 +29,10 @@ class GroupProfileUploadForm extends React.Component {
   }
 }
 
-export default GroupProfileUploadForm;
+const mDTP = dispatch => {
+  return {
+    upload: (data, group_id) => dispatch(uploadGroupProfileImage(data, group_id))
+  }
+}
+
+export default connect(null, mDTP)(GroupProfileUploadForm);
