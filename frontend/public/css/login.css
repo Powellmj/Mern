@@ -71,3 +71,11 @@
   color: rgb(240, 48, 74);
   border: 1px solid rgb(240, 48, 74);
 }
+
+.session-link {
+  color: rgb(0, 153, 255);
+}
+
+.session-link:hover {
+  text-decoration: underline;
+}

@@ -18,8 +18,8 @@ class EventIndex extends React.Component {
 
   mapEvents() {
     var today = new Date('2020-01-02');
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
+    var dd = today.getDate() + 18;
+    var mm = today.getMonth() + 2;
     var yyyy = today.getFullYear();
     if (dd < 10) {
       dd = '0' + dd;
@@ -30,11 +30,13 @@ class EventIndex extends React.Component {
     var today = yyyy + '-' + mm + '-' + dd;
 
     this.props.events.map(event => {
+      console.log(new Date(today))
+      console.log(new Date(event.event_start))
       if (new Date(today) < new Date(event.event_start) && event.group_id === this.props.group._id) {
         return (
           this.state.future.push(event)
         )
-      } else if (new Date(today) > new Date(event.event_start) && event.group_id === this.props.group._id) {
+      } else if (new Date(today) > new Date(event.event_end) && event.group_id === this.props.group._id) {
         return (
          this.state.past.push(event)
         )
@@ -94,8 +96,7 @@ class EventIndex extends React.Component {
             return (
               <li key={event._id}>
                 <Link
-                  to={`/groups/${this.props.group._id}/events/${event._id}`}
-                >
+                  to={`/groups/${this.props.group._id}/events/${event._id}`}>
                   <EventIndexItem event={event} past={false} />
                 </Link>
               </li>
