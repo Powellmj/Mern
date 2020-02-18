@@ -54,12 +54,12 @@ class GroupUpdateForm extends React.Component {
           </label>
           <label className="group-update-label"> Group description <br/>
             <textarea className="group-update-form-desc" 
-            placeholder="group name" type="text"
+            placeholder="group description" type="text"
             value={this.state.desc} 
             onChange={this.handleInput('desc')} />
           </label>
           <label className="group-update-label"> Group location <br/>
-            <input className="group-update-form-location" placeholder="group name" type="text"
+            <input className="group-update-form-location" placeholder="group location" type="text"
             value={this.state.location}
             onChange={this.handleInput('location')} />
           </label>

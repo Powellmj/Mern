@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchAllEvents: group_id => { dispatch(requestAllEvents(group_id)) },
   joinGroup: (group_id, user_id) => { dispatch(joinGroup(group_id, user_id)) },
   updateGroup: (
-    <button className="group-show-button" onClick={() => dispatch(openModal("groupUpdate"))}>
+    <button className="dropdown-item" onClick={() => dispatch(openModal("groupUpdate"))}>
       Update group
     </button>
   )

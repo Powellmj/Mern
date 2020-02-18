@@ -9,11 +9,24 @@ class GroupShow extends React.Component {
     super(props)
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleOptions = this.handleOptions.bind(this);
   }
 
   componentDidMount() {
     this.props.requestGroup(this.props.match.params.group_id)
     this.props.fetchAllEvents(this.props.match.params.group_id)
+  }
+
+  handleOptions() {
+    if (document.querySelector(".dropdown").style.top !== "39px") {
+      document.querySelector(".dropdown").style.top = "39px"
+      document.querySelector(".group-plan").style.right = "42px"
+      document.querySelector(".group-show-dropdown").style.display = "inline-block"
+    } else {
+      document.querySelector(".dropdown").style.top = "0"
+      document.querySelector(".group-plan").style.right = "0"
+      document.querySelector(".group-show-dropdown").style.display = "none"
+    }
   }
 
   handleClick() {
@@ -51,12 +64,19 @@ class GroupShow extends React.Component {
                 <ALink className="group-show-menu-item"to={`/groups/${this.props.group._id}/#discussions`}>Discussions</ALink>
               </div>
               <div className="group-show-join-button-panel">
-              {this.props.currentUser.id === this.props.group.owner_id ? (
-              <label className="group-show-button" > Change Group Picture
-                <GroupProfileUploadForm group={this.props.group} currentUser={this.props.currentUser} />
-              </label>) : (
+              {this.props.currentUser.id === this.props.group.owner_id ? 
+              (
+              <div>
+                <div onClick={this.handleOptions} className="group-show-button dropdown">Group Options</div>
+                <div className="group-show-dropdown">
+                  <label className="dropdown-item first-item" > Change Group Picture
+                    <GroupProfileUploadForm group={this.props.group} currentUser={this.props.currentUser} />
+                  </label>
+                  {this.props.updateGroup}
+                </div>
+              </div>
+              ) : (
                 <div onClick={this.handleClick} className="group-show-button">Join this group</div>)}
-              {this.props.currentUser.id === this.props.group.owner_id ? (this.props.updateGroup) : null}
               {this.props.currentUser.id === this.props.group.owner_id ? (
                 <Link to={`/groups/${this.props.group._id}/create`}>
                 <div className="group-show-button group-plan">Plan an Event</div>
