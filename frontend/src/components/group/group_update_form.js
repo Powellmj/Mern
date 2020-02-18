@@ -24,7 +24,9 @@ class GroupUpdateForm extends React.Component {
       location: this.state.location,
       _id: this.props.group._id
     }
+
     this.props.modifyGroup(modGroup)
+    this.props.closeModal()
   }
 
   componentDidMount(){

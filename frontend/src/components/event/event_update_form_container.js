@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchEvent: event_id => dispatch(requestEvent(event_id)),
-  modifyEvent: event => dispatch(updateEvent(event))
+  modifyEvent: event => dispatch(updateEvent(event)),
+  closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventUpdateForm);

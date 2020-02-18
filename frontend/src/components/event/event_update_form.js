@@ -26,6 +26,7 @@ class EventUpdateForm extends React.Component {
     }
 
     this.props.modifyEvent(updatedEvent)
+    this.props.closeModal()
   }
 
   handleInput(field){

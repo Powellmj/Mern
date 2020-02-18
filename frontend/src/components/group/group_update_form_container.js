@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchGroup: group_id => dispatch(requestGroup(group_id)),
-  modifyGroup: group => dispatch(updateGroup(group))
+  modifyGroup: group => dispatch(updateGroup(group)),
+  closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroupUpdateForm);
