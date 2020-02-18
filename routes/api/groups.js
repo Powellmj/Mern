@@ -15,6 +15,10 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   Group.findById((req.params.id))
+    .populate({
+      path: 'members',
+      select: ['name', 'email']
+    })
     .then(group => res.json(group))
     .catch(err =>
       res.status(404).json({ nogroupfound: 'No group found with that ID' })
@@ -51,5 +55,13 @@ router.patch("/:id", (req, res) => {
   })
     .catch(err => console.log(err))
 });
+
+router.patch("/update/:id", (req, res) => {
+  const filter = { _id: req.params.id };
+  const update = req.body;
+  Group.findOneAndUpdate(filter, update, { new: true })
+    .then(group => res.json(group))
+    .catch(err => res.status(400).json({ unabletoupdategroup: "Unable to update group" }))
+})
 
 module.exports = router;

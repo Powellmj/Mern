@@ -17,6 +17,10 @@ router.get("/", (req, res) => (
 
 router.get("/:id", (req, res) => (
   Event.findById(req.params.id)
+    .populate({
+      path: 'attendees',
+      select: ['name', 'email']
+    })
     .then(event => res.json(event))
     .catch(err => res.status(404).json({ noeventfound: "No event found" }))
 ))
@@ -59,5 +63,13 @@ router.patch("/:id", (req, res) => {
         .catch(err => res.status(400).json({ unabletojoinevent: "Unable join the simulation" }))
     }
 );
+
+router.patch("/update/:id", (req, res) => {
+  const filter = { _id: req.params.id };
+  const update = req.body;
+  Event.findOneAndUpdate(filter, update, { new: true })
+    .then(event => res.json(event))
+    .catch(err => res.status(400).json({ unabletoupdateevent: "Unable to update simulation" }))
+})
 
 module.exports = router;

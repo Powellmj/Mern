@@ -4,6 +4,7 @@ export const RECEIVE_ALL_EVENTS = 'RECEIVE_ALL_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
 export const CLEAR_EVENT_ERRORS = 'CLEAR_EVENT_ERRORS';
+export const RECEIVE_EVENT_ATTENDEES = 'RECEIVE_EVENT_ATTENDEES';
 
 const receiveAllEvents = events => ({
   type: RECEIVE_ALL_EVENTS,
@@ -24,6 +25,11 @@ export const clearEventErrors = () => ({
   type: CLEAR_EVENT_ERRORS
 });
 
+const receiveEventAttendees = eventAttendees => ({
+  type: RECEIVE_EVENT_ATTENDEES,
+  eventAttendees
+});
+
 export const requestAllEvents = group_id => dispatch => EventAPIUtil.fetchAllEvents(group_id)
   .then(events => dispatch(receiveAllEvents(events)))
 
@@ -39,3 +45,7 @@ export const newEvent = (event, cb) => dispatch => EventAPIUtil.createEvent(even
 
 export const joinEvent = (event_id, user_id) => dispatch => EventAPIUtil.joinEvent(event_id, user_id)
   .then(response => dispatch(receiveEvent(response.data)))
+
+export const updateEvent = event => dispatch => EventAPIUtil.updateEvent(event)
+  .then(event => dispatch(receiveEvent(event)))
+  .catch(err => dispatch(receiveEventErrors(err)))

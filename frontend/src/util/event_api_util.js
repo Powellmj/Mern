@@ -16,3 +16,6 @@ export const createEvent = event => (
 export const joinEvent = (event_id, user_id) => (
   axios.patch(`/api/events/${event_id}`, (event_id, user_id))
 )
+
+export const updateEvent = event =>
+  axios.patch(`/api/events/update/${event._id}`, event)
