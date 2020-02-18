@@ -14,13 +14,12 @@ class GroupIndex extends React.Component {
       <div className="groups-index">
         <div className="index-banner">
           <div className="index-banner-header" >Find your next simulation</div>
-          <div className="index-banner-text">2027 events near you</div>
+          <div className="index-banner-text">{`${this.props.groups.length}`} groups near you</div>
         </div>
         <div className="index-search-pos">
           <div className="index-search">
             <input className="index-search-input" placeholder="Search"></input>
             <i className="fas fa-search"></i>
-            <div className="index-distance">within 5 miles of location</div>
           </div>
         </div>
         <div>
