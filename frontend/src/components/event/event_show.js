@@ -21,8 +21,6 @@ class EventShow extends React.Component {
   }
 
   mapAttendees() {
-    // if (!this.props.event.attendees) {
-    // }
       var defaultArr = [
         { name: "Invite your mom!", picture: "https://vignette.wikia.nocookie.net/simpsons/images/0/0b/Marge_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20190409004747"},
         { name: "Invite your friend!", picture: "https://i.ya-webdesign.com/images/barney-head-png-9.png"},
@@ -125,8 +123,8 @@ class EventShow extends React.Component {
                   <div><i className="fa fa-clock-o"></i></div>
                 <div className="event-show-right-date">
                   <div>When: {dateDay}</div>
-                  <div>Starting at: {event.start_time}</div>
-                  <div>Ending at: {event.end_time}</div>
+                  <div>Starting at: {event.event_start ? event.event_start.slice(14, -5) : null }</div>
+                  <div>Ending at: {event.event_end ? event.event_end.slice(14, -5) : null}</div>
                 </div>
               </div>
               <div className="event-show-cat">

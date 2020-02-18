@@ -160,7 +160,6 @@
 
 .event-index-photos {
   display: flex;
-  justify-content: space-between;
 }
 
 .fa-camera {
@@ -177,6 +176,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: .2s;
+  margin-left: 25px;
   margin-bottom: 120px;
 }
 

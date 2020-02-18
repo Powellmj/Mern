@@ -54,8 +54,10 @@ class EventIndex extends React.Component {
   renderImage(i) {
     if (this.props.events.length !== 0) {
       if (this.props.events[i] === undefined || this.props.events[i].picture_id === undefined) {
-        return <div className="event-index-photo"><i className="fa fa-camera"></i></div>
-      } else {
+        return (
+          <div className="event-index-photo"><i className="fa fa-camera"></i></div>
+        )
+      } else if (this.props.events[i].group_id === this.props.group._id) {
         return <div
         className="event-index-photo"
         style={{ backgroundImage: `url(${this.props.events[i].picture_id})` }}
