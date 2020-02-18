@@ -1,4 +1,5 @@
 import * as EventAPIUtil from '../util/event_api_util';
+// import { response } from 'express';
 
 export const RECEIVE_ALL_EVENTS = 'RECEIVE_ALL_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
@@ -39,3 +40,7 @@ export const newEvent = (event, cb) => dispatch => EventAPIUtil.createEvent(even
 
 export const joinEvent = (event_id, user_id) => dispatch => EventAPIUtil.joinEvent(event_id, user_id)
   .then(response => dispatch(receiveEvent(response.data)))
+
+export const updateEvent = event => dispatch => EventAPIUtil.updateEvent(event)
+  .then(event => dispatch(receiveEvent(event)))
+  .catch(err => dispatch(receiveEventErrors(err)))

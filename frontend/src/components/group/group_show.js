@@ -61,6 +61,7 @@ class GroupShow extends React.Component {
                 <div className="group-show-button group-plan">Plan an Event</div>
               </Link>
               ) : null }
+              {this.props.updateGroup}
             </div>
           </div>
             <div className="group-show-lower">

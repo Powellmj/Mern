@@ -60,4 +60,12 @@ router.patch("/:id", (req, res) => {
     }
 );
 
+router.patch("/update/:id", (req, res) => {
+  const filter = { _id: req.params.id };
+  const update = req.body;
+  Event.findOneAndUpdate(filter, update, { new: true })
+    .then(event => res.json(event))
+    .catch(err => res.status(400).json({ unabletoupdateevent: "Unable to update simulation" }))
+})
+
 module.exports = router;
