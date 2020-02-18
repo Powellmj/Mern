@@ -72,9 +72,12 @@ class EventShow extends React.Component {
                 <div className="event-show-host-owner">{group ? group.organizer || "Squiddy" : "Squiddy"}</div>
               </div>
             </div>
-            <div className="event-show-host-share">
-              <i className="fas fa-share"></i>
-              <div className="event-show-host-share-detail">Share</div>
+            <div>
+              <div className="event-show-host-share">
+                <i className="fas fa-share"></i>
+                <div className="event-show-host-share-detail">Share</div>
+              </div>
+              <button>delete simulation</button>
             </div>
           </div>
         </div>

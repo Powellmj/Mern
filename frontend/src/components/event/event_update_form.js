@@ -24,13 +24,12 @@ class EventUpdateForm extends React.Component {
       event_end: this.state.event_end,
       _id: this.props.event._id
     }
-    // debugger;
 
     this.props.modifyEvent(updatedEvent)
   }
 
   handleInput(field){
-    return e => this.setState({[field]: e.currentTarget.value});
+    return e => this.setState({[field]: e.currentTarget.value})
   }
 
   componentDidMount(){
@@ -60,9 +59,8 @@ class EventUpdateForm extends React.Component {
   }
 
   render(){
-    console.log(this.props)
-    let start_date = this.state.event_start.toString().slice(0, -5)
-    let end_date = this.state.event_end.toString().slice(0, -5)
+    let start_date = this.state.event_start.toString().slice(0,16)
+    let end_date = this.state.event_end.toString().slice(0,16)
     return(
       <div className="event-form-container">
         {/* {this.renderErrors()} */}
@@ -79,10 +77,6 @@ class EventUpdateForm extends React.Component {
             value={this.state.location}
             onChange={this.handleInput('location')} />
 
-            {/* use of min/max for datetime-local will allow us to set restrictions on when they can make an event outside of validations
-            we may need to build in logic so that users can't book within a certain time period
-            - ex: users can only create events at least 7 days out to ensure that members have time to join the event */}
-            {/* may need to implement in creation itself as well */}
           <input className="event-form-event_start" placeholder="simulation name" type="datetime-local"
             value={start_date}
             onChange={this.handleInput('event_start')}
@@ -93,6 +87,7 @@ class EventUpdateForm extends React.Component {
             onChange={this.handleInput('event_end')}
             min="2020-02-17T13:41" max="2025-01-01T00:00" />
           <button>Update simulation</button>
+          <input type="hidden" id="timezone" value="-8.00" />
         </form>
       </div>
     )
