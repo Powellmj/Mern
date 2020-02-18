@@ -52,4 +52,12 @@ router.patch("/:id", (req, res) => {
     .catch(err => console.log(err))
 });
 
+router.patch("/update/:id", (req, res) => {
+  const filter = { _id: req.params.id };
+  const update = req.body;
+  Group.findOneAndUpdate(filter, update, { new: true })
+    .then(group => res.json(group))
+    .catch(err => res.status(400).json({ unabletoupdategroup: "Unable to update group" }))
+})
+
 module.exports = router;
