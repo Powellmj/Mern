@@ -30,8 +30,6 @@ class EventIndex extends React.Component {
     var today = yyyy + '-' + mm + '-' + dd;
 
     this.props.events.map(event => {
-      console.log(new Date(today))
-      console.log(new Date(event.event_start))
       if (new Date(today) < new Date(event.event_start) && event.group_id === this.props.group._id) {
         return (
           this.state.future.push(event)
