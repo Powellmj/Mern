@@ -35,13 +35,11 @@ class EventShow extends React.Component {
       ]
       var attendeesArr = this.props.event.attendees || []
 
-      if(!defaultArr) {
       defaultArr.map(defaultAttendee => {
         if (attendeesArr.length < 8) {
           attendeesArr.push(defaultAttendee)
         }
       })
-    }
 
     return attendeesArr.map((attendee, idx) => {
       return (
