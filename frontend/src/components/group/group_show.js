@@ -13,6 +13,7 @@ class GroupShow extends React.Component {
 
   componentDidMount() {
     this.props.requestGroup(this.props.match.params.group_id)
+    this.props.fetchAllEvents(this.props.match.params.group_id)
   }
 
   handleClick() {
@@ -28,16 +29,17 @@ class GroupShow extends React.Component {
       return (
         <div className="group-show-container">
           <div className="group-show-overview">
-            <div className="group-show-picture" style={{ backgroundImage: `url(${this.props.group.picture})` }}>
+            <div className="group-show-picture" style={ this.props.group.picture ? { backgroundImage: `url(${this.props.group.picture})` } : null}>
           </div>
             <div className="group-show-titlebox">
               <div className="group-show-title">{this.props.group.title}</div>
-              <div className="group-show-info">{this.props.group.location}</div>
+              <div className="group-show-info"><i className="material-icons group-show-icon">place</i>{this.props.group.location}</div>
               <div className="group-show-info">
+                <i className="fa fa-users user-icon"></i>
                 {this.props.group.members.length}
                 {this.props.group.members.length === 1 ? " Member" : " Members"}
                 </div>
-              <div className="group-show-info">Organized by {this.props.group.organizer}</div>
+              <div className="group-show-info"><i className="fa fa-user user-icon-1"></i> Organized by {this.props.group.organizer}</div>
             </div>
           </div>
             <div className="group-show-menus-bar">

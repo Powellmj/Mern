@@ -13,7 +13,6 @@ class EventShow extends React.Component {
 
   componentDidMount(){
     this.props.fetchEvent(this.props.match.params.event_id)
-    this.props.fetchGroup(this.props.match.params.group_id)
   }
 
   handleClick(){
@@ -21,26 +20,32 @@ class EventShow extends React.Component {
   }
 
   mapAttendees() {
+    if (this.props.event.attendees) {
+    }
+    
     var defaultArr = [
-      { name: "Invite your mom!" },
-      { name: "Invite your friend!" },
-      { name: "Invite your coworker!" },
-      { name: "Invite your dog!" },
-      { name: "Invite your long lost cousin!" },
-      { name: "Invite your pet rock!" },
-      { name: "Invite your frenemy!" },
-      { name: "Invite your crush!" }
+      { name: "Invite your mom!", picture: "https://vignette.wikia.nocookie.net/simpsons/images/0/0b/Marge_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20190409004747"},
+      { name: "Invite your friend!", picture: "https://i.ya-webdesign.com/images/barney-head-png-9.png"},
+      { name: "Invite your coworker!", picture: "https://www.geek.com/wp-content/uploads/2016/03/velma.jpg"},
+      { name: "Invite your dog!", picture: "https://vignette.wikia.nocookie.net/disney/images/7/7b/Pluto.PNG/revision/latest/top-crop/width/360/height/450?cb=20170628205507"},
+      { name: "Invite your long lost cousin!", picture: "https://slm-assets.secondlife.com/assets/21404892/view_large/angelica.jpg?1535218951" },
+      { name: "Invite your pet rock!", picture: "https://vignette.wikia.nocookie.net/spongebob/images/4/45/Pete_the_rock.png/revision/latest?cb=20141115223905" },
+      { name: "Invite your frenemy!", picture: "https://i.pinimg.com/236x/31/16/aa/3116aaa3ef1e991aa78a079a8081b876--best-cartoons-famous-cartoons.jpg"},
+      { name: "Invite your crush!", picture: "https://media.altpress.com/uploads/2018/06/Hey_Arnold_-_News_717-463-2.jpg" }
     ]
 
     var attendeesArr = this.props.event.attendees || []
-    if (attendeesArr.length < 8) {
-      attendeesArr = attendeesArr.concat(defaultArr)
-    }
+    defaultArr.map(defaultAttendee => {
+      if (attendeesArr.length < 8) {
+        attendeesArr.push(defaultAttendee)
+      }
+    })
 
-    return attendeesArr.map(attendee => {
+    return attendeesArr.map((attendee, idx) => {
       return (
-        <div className="event-show-attendee-box">
-          <div className="event-show-attendee-picture"><i className="event-show-attendee fa fa-user"></i></div>
+        <div key={idx} className="event-show-attendee-box">
+          <div className="event-show-attendee-picture" style={ { backgroundImage: `url(${attendee.picture})` }}>
+      {attendee.picture ? null : <i className="event-show-attendee fa fa-user"></i>}</div>
           <div className="event-show-attendee-name">{attendee.name}</div>
           <div className="event-show-attendee-member">Member</div>
         </div>
@@ -80,7 +85,8 @@ class EventShow extends React.Component {
         </div>
         <div className="event-show-body">
           <div className="event-show-body-left">
-          <div className="event-show-image"></div>
+            <div className="event-show-image" 
+            style={{ backgroundImage: this.props.event.picture ? `url(${this.props.event.picture})` : null }}></div>
           <div className="event-show-details">
             <div className="event-show-details-title">Details</div>
             <div className="event-show-details-desc">{event.desc}</div>
@@ -120,7 +126,7 @@ class EventShow extends React.Component {
                 </div>
               </div>
               <div className="event-show-cat">
-              <div><i className="material-icons">place</i></div>
+              <div><i className="material-icons event-show-icon">place</i></div>
               <div className="event-show-location">Where: {event.location}</div>
               </div>
             </div>

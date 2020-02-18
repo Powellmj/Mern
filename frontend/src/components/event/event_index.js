@@ -29,11 +29,11 @@ class EventIndex extends React.Component {
     var today = yyyy + '-' + mm + '-' + dd;
 
     this.props.events.map(event => {
-      if (new Date(today) < new Date(event.event_start)) {
+      if (new Date(today) < new Date(event.event_start) && event.group_id === this.props.group._id) {
         return (
           this.state.future.push(event)
         )
-      } else if (new Date(today) > new Date(event.event_start)) {
+      } else if (new Date(today) > new Date(event.event_start) && event.group_id === this.props.group._id) {
         return (
          this.state.past.push(event)
         )
@@ -92,11 +92,11 @@ class EventIndex extends React.Component {
         </ul>
             <a id="photos"></a>
           <div className="event-index-banner">
-            <div className="event-index-banner-title">Photos (None yet!)</div>
+            <div className="event-index-banner-title">Photos {this.props.group.picture ? '(1)' : '(None yet!)'}</div>
             <div className="event-index-banner-see">See all</div>
           </div>
           <div className="event-index-photos">
-            <div className="event-index-photo"><i className="fa fa-camera"></i></div>
+            <div className="event-index-photo" style={{ backgroundImage: `url(${this.props.group.picture})` }}>{ this.props.group.picture ? null : <i className="fa fa-camera"></i>}</div>
             <div className="event-index-photo"><i className="fa fa-camera"></i></div>
             <div className="event-index-photo"><i className="fa fa-camera"></i></div>
         </div>
