@@ -63,7 +63,7 @@ class EventUpdateForm extends React.Component {
     let end_date = this.state.event_end.toString().slice(0,16)
     return(
       <div className="event-form-container">
-        {/* {this.renderErrors()} */}
+        {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
           <input className="event-form-title" placeholder="simulation name" type="text"
             value={this.state.title}
