@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import EventUpdateFormContainer from '../event/event_update_form_container';
+import GroupUpdateFormContainer from '../group/group_update_form_container';
 
 const Modal = ({ modal, closeModal }) => {
   if(!modal) return null;
@@ -9,6 +10,9 @@ const Modal = ({ modal, closeModal }) => {
   switch (modal) {
     case 'eventUpdate':
       component = <EventUpdateFormContainer />;
+      break;
+    case 'groupUpdate':
+      component = <GroupUpdateFormContainer />;
       break;
     default:
       return null;

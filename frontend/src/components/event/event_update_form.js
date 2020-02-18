@@ -57,8 +57,8 @@ class EventUpdateForm extends React.Component {
   }
 
   render(){
-    let start_date = this.state.event_start
-    let end_date = this.state.event_end
+    let start_date = this.state.event_start.toString().slice(0, 16)
+    let end_date = this.state.event_end.toString().slice(0, 16)
     return(
       <div className="event-form-container">
         {this.renderErrors()}
