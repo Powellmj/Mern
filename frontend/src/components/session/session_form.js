@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -59,6 +61,9 @@ class LoginForm extends React.Component {
         <div className="session-form">
           <form className="session-form" onSubmit={this.handleSubmit}>
             <div className="session-title">{this.props.formType}</div>
+            <div>{this.props.formType === "Sign up" ? 
+            (<div>Already a member? <Link className="session-link" to={'/login'}>Log In!</Link></div>) : 
+            (<div>Need an account? <Link className="session-link" to={'/signup'}>Sign Up!</Link></div>)}</div>
             { 
             this.props.formType === "Sign up" ?
                 <label className="session-label">Your name
