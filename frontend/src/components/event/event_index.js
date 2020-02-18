@@ -51,10 +51,6 @@ class EventIndex extends React.Component {
     }
   }
 
-  componentDidMount(){
-    this.props.fetchAllEvents(this.props.group._id)
-  }
-
   renderImage(i) {
     if (this.props.events.length !== 0) {
       if (this.props.events[i] === undefined || this.props.events[i].picture_id === undefined) {
