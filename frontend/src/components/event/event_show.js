@@ -76,18 +76,16 @@ class EventShow extends React.Component {
               </div>
             </div>
             <div className="event-show-header-buttons">
-              <div className="event-show-host-share">
-                <i className="fas fa-share"></i>
-                <div className="event-show-host-share-detail">Share</div>
-              </div>
-              {group ? group.organizer === this.props.currentUser.name ? this.props.updateEvent : null : null}
+              {group ? group.organizer === this.props.currentUser.name ?
+                <EventProfilePic event={this.props.event} /> : null : null}
+              {group ? group.organizer === this.props.currentUser.name ? 
+              this.props.updateEvent : null : null}
             </div>
           </div>
         </div>
         <div className="event-show-body">
           <div className="event-show-body-left">
           <div className="event-show-image" style={{ backgroundImage: `url(${this.props.event.picture_id})` }}>
-            <EventProfilePic event={this.props.event}/>
           </div>
           <div className="event-show-details">
             <div className="event-show-details-title">Details</div>

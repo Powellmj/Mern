@@ -22,9 +22,10 @@ class EventProfileUploadForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <label className="group-show-button">
+        Upload Event Image
         <input className="no-input" type="file" onChange={this.fileUpload} />
-      </div>
+      </label>
     );
   }
 }
