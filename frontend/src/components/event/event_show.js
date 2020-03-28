@@ -143,7 +143,6 @@ class EventShow extends React.Component {
               <div className="event-show-footer-right-availability">
                 <div className="event-show-free">Free</div>
               </div>
-              <div><i className="far fa-star"></i></div>
               <div><button className="group-show-button attend-button" onClick={this.handleClick}>Attend</button></div>
             </div>
           </div>

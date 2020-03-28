@@ -132,12 +132,12 @@ class EventPageIndex extends React.Component {
             <ul className="event-page-index-link-list">
               {
                 this.props.linkTitles.map((title, i) => (
-                  <li key={i} className={`event-page-index-link index-link-${i}`}>
-                    <Link to={`/groups/create`}>
+                  <Link to={`/groups/create`}>
+                      <li key={i} className={`event-page-index-link index-link-${i}`}>
                       <div className="index-link-title">{title}</div>
                       <div className="index-link-learn">Learn how</div>
-                    </Link>
-                  </li>
+                      </li>
+                  </Link>
                 ))
               }
             </ul>

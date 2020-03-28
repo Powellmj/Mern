@@ -52,6 +52,11 @@
   text-align: center;
 }
 
+.index-link {
+  display: flex;
+  flex-direction: column;
+}
+
 .event-page-index-item {
   cursor: pointer;
   display: flex;
@@ -142,6 +147,7 @@
   background-size: 230px;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
