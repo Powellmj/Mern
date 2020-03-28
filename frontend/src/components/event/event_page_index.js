@@ -30,7 +30,7 @@ class EventPageIndex extends React.Component {
     let mappableDates = {}
 
     let filteredDates = this.props.events.filter(event => {
-      if (event.title.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
+      if (event.title ? event.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()) : false) {
         return event
       }
     })
