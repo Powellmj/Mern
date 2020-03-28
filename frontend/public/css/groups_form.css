@@ -9,6 +9,10 @@
   width: 100vw;
 }
 
+.create-group-form-container::-webkit-scrollbar {
+  display: none;
+}
+
 .create-group-stage {
   flex-direction: column;
   margin: 0 350px;

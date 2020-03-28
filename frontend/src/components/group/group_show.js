@@ -14,7 +14,8 @@ class GroupShow extends React.Component {
 
   componentDidMount() {
     this.props.requestGroup(this.props.match.params.group_id)
-    this.props.fetchAllEvents(this.props.match.params.group_id)
+    this.props.fetchAllGroupEvents(this.props.match.params.group_id)
+    debugger
   }
 
   handleOptions() {
@@ -92,7 +93,7 @@ class GroupShow extends React.Component {
               <div className="group-show-desc">{this.props.group.desc}</div>
               </a>
               </div>
-              <EventIndexContainer />
+              <EventIndexContainer events={this.props.events}/>
             </div>
             <div className="group-show-lower-right"></div>
           </div>

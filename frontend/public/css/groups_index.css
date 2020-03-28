@@ -28,6 +28,12 @@
 .index-search-pos {
   position: sticky;
   top: 25px;
+  z-index: 1;
+}
+
+.react-datepicker__navigation {
+  top: 7px !important;
+  height: 1px !important;
 }
 
 .index-search {
@@ -37,12 +43,14 @@
   flex-direction: row;
   align-items: center;
   background-color: rgb(27, 27, 27);
+  width: 950px;
+  z-index: 1;
 }
 
 .index-search-input {
   background-color: white;
   height: 40px;
-  width: 902px;
+  width: 640px;
   padding-left: 10px;
   margin: 15px 0px 15px 10px;
   border-radius: 2px;

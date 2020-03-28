@@ -102,8 +102,6 @@ class EventForm extends React.Component {
       subButton.style.color = 'gray';
       document.querySelector('.create-group-progress-4').style.display = "none"
     }
-
-
     return e => this.setState({
       [field]: e.currentTarget.value
     });

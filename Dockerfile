@@ -4,8 +4,6 @@ ARG NODE_ENV=production
 ENV PATH /usr/src/node_app/node_modules/.bin:$PATH
 COPY package.json /usr/src/node_app/package.json
 RUN npm install --silent && mkdir /usr/src/node_app/frontend
-# COPY frontend/package.json /usr/src/node_app/frontend/package.json
-# RUN npm run frontend-install
 COPY . /usr/src/node_app
 RUN npm run heroku-postbuild
 EXPOSE 5000

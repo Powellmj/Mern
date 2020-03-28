@@ -9,11 +9,21 @@ const validateEventInput = require('../../validation/event');
 router.get("/test", (req, res) => res.json({ msg: "This is the events route" }));
 
 // use query here since in our api util we are using query
-router.get("/", (req, res) => (
-  Event.find({ group_id: req.query.group_id })
+// router.get("/", (req, res) => (
+//   Event.find({ group_id: req.query.group_id })
+//     .then(events => res.json(events))
+//     .catch(err => res.status(404).json({ noeventsfound: "No events found" }))
+// ));
+
+router.get("/", (req, res) => {
+  Event.find()
+    .populate({
+      path: 'group_id',
+      select: ['title']
+    })
     .then(events => res.json(events))
-    .catch(err => res.status(404).json({ noeventsfound: "No events found" }))
-));
+    .catch(err => res.status(404).json(err.message))
+});
 
 router.get("/:id", (req, res) => (
   Event.findById(req.params.id)

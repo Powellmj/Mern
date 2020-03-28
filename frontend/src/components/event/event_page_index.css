@@ -1,0 +1,147 @@
+.event-page-index-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fafafa;
+  padding-bottom: 100px;
+}
+
+.banner-buttons {
+  display: flex;
+  border: 1px solid rgb(61, 61, 61);
+  border-radius: 3px;
+}
+
+.banner-button {
+  font-size: 18px;
+  width: 100px;
+  padding: 12px;
+  color: rgb(170, 170, 170);
+  text-align: center;
+  cursor: pointer;
+}
+
+.active-banner-button {
+  background: rgba(231, 231, 231, 0.2);
+  color: white;
+  box-shadow: inset -1px 1px 2px 0 rgba(0,0,0,.54);
+  cursor: initial;
+}
+
+.event-page-index {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-left: 34px;
+  width: 980px;
+  height: fit-content;
+}
+
+.event-page-index-window {
+  width: 752px;
+}
+
+.event-post-index-links {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  position: relative;
+  left: 32px;
+  width: 752px;
+  text-align: center;
+}
+
+.event-page-index-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 700px;
+  height: fit-content;
+  margin-top: -1px;
+  border: 1px solid rgb(231, 231, 231);
+  background-color: white;
+}
+
+.event-page-index-item-time {
+  color: gray;
+  font-size: 16px;
+  font-weight: 100;
+  margin-left: 20px;
+  margin-right: 10px;
+  height: 65px;
+}
+
+.event-page-index-item-text {
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 20px 0px 20px 0px;
+}
+
+.index-item-group-title {
+  color: gray;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 15px;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.event-page-index-item-members {
+  color: gray;
+  font-size: 16px;
+  font-weight: 100;
+  margin-left: 15px;
+}
+
+.event-page-index-calendar {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 945px;
+}
+
+.calendar {
+  position: relative;
+  top: 60px;
+  z-index: 0;
+}
+
+.react-datepicker {
+  border: 1px solid rgb(231, 231, 231) !important;
+}
+
+.date-header {
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.event-page-index-link-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 700px;
+  height: 280px;
+}
+
+.event-page-link-container {
+  display: flex;
+  justify-content: center;
+}
+
+.event-page-index-link {
+  height: 120px;
+  width: 160px;
+  background-repeat: no-repeat;
+  background-size: 230px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

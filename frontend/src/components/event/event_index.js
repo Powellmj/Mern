@@ -17,9 +17,10 @@ class EventIndex extends React.Component {
   }
 
   mapEvents() {
-    var today = new Date('2020-01-02');
-    var dd = today.getDate() + 18;
-    var mm = today.getMonth() + 2;
+    var today = new Date();
+
+    var dd = today.getDate();
+    var mm = today.getMonth();
     var yyyy = today.getFullYear();
     if (dd < 10) {
       dd = '0' + dd;
@@ -29,7 +30,12 @@ class EventIndex extends React.Component {
     }
     var today = yyyy + '-' + mm + '-' + dd;
 
-    this.props.events.map(event => {
+
+    let sortedEvents = this.props.events.sort((event1, event2) => {
+      return new Date(event1.event_start) - new Date(event2.event_start);
+    });
+
+    sortedEvents.map(event => {
       if (new Date(today) < new Date(event.event_start) && event.group_id === this.props.group._id) {
         return (
           this.state.future.push(event)
@@ -72,7 +78,7 @@ class EventIndex extends React.Component {
     }
   }
 
-  render(){
+  render() {
     if (!this.state.future.length && !this.state.past.length) {this.mapEvents()}
     return (
       <div className="event-index">

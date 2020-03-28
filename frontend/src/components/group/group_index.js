@@ -3,12 +3,42 @@ import { Link } from 'react-router-dom';
 import GroupIndexItem from './group_index_item';
 
 class GroupIndex extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      searchTerm: '',
+      groups: []
+    }
+    this.filterGroups = this.filterGroups.bind(this);
+  }
+
+
   componentDidMount(){
     this.props.fetchAllGroups()
   }
 
+  handleClick = () => {
+    this.props.history.push({ pathname: `/calendar/` });
+  }
+
+  filterGroups() {
+    let filteredGroups = this.props.groups.filter(group => {
+      if (group.title.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
+        return group
+      }
+    })
+    this.state.groups = filteredGroups
+  }
+
+  handleUpdate() {
+    return e => this.setState({
+      searchTerm: e.currentTarget.value
+    });
+  }
+
   render(){
-    const links = this.props.linkRoutes;
+    this.filterGroups()
 
     return (
       <div className="groups-index">
@@ -18,14 +48,22 @@ class GroupIndex extends React.Component {
         </div>
         <div className="index-search-pos">
           <div className="index-search">
-            <input className="index-search-input" placeholder="Search"></input>
+            <input 
+            value={this.state.searchTerm}
+            onChange={this.handleUpdate()}
+            className="index-search-input" 
+            placeholder="Search"/>
             <i className="fas fa-search"></i>
+          <div className="banner-buttons">
+            <div className="banner-button active-banner-button">Groups</div>
+            <div onClick={this.handleClick} className="banner-button">Calendar</div>
+          </div>
           </div>
         </div>
         <div>
           <ul className="index-item-list">
             {
-              this.props.groups.map((group, i) => {
+              this.state.groups.map((group, i) => {
                 if (i < 12) {
                 return (
                 <li key={i}>
@@ -58,7 +96,7 @@ class GroupIndex extends React.Component {
         <div>
           <ul className="index-item-list">
             {
-              this.props.groups.map((group, i) => (
+              this.state.groups.map((group, i) => (
                 <li key={i}>
                   <GroupIndexItem group={group} />
                 </li>

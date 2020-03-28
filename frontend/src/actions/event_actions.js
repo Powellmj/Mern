@@ -1,10 +1,16 @@
 import * as EventAPIUtil from '../util/event_api_util';
 
+export const RECEIVE_ALL_GROUP_EVENTS = 'RECEIVE_ALL_GROUP_EVENTS';
 export const RECEIVE_ALL_EVENTS = 'RECEIVE_ALL_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
 export const CLEAR_EVENT_ERRORS = 'CLEAR_EVENT_ERRORS';
 export const RECEIVE_EVENT_ATTENDEES = 'RECEIVE_EVENT_ATTENDEES';
+
+const receiveAllGroupEvents = events => ({
+  type: RECEIVE_ALL_GROUP_EVENTS,
+  events
+});
 
 const receiveAllEvents = events => ({
   type: RECEIVE_ALL_EVENTS,
@@ -30,7 +36,10 @@ const receiveEventAttendees = eventAttendees => ({
   eventAttendees
 });
 
-export const requestAllEvents = group_id => dispatch => EventAPIUtil.fetchAllEvents(group_id)
+export const requestAllGroupEvents = group_id => dispatch => EventAPIUtil.fetchAllGroupEvents(group_id)
+  .then(events => dispatch(receiveAllGroupEvents(events)))
+
+export const requestAllEvents = () => dispatch => EventAPIUtil.fetchAllEvents()
   .then(events => dispatch(receiveAllEvents(events)))
 
 export const requestEvent = event_id => dispatch => EventAPIUtil.fetchEvent(event_id)

@@ -16,18 +16,18 @@ const EventSchema = new Schema({
   },
   group_id: {
     type: Schema.Types.ObjectId,
-    ref: 'groups'
+    ref: 'Group'
   },
   picture_id: {
     type: String,
     required: false
   },
   event_start: {
-    type: Date,
+    type: String,
     required: true
   },
   event_end: {
-    type: Date,
+    type: String,
     required: true
   },
   date: {
