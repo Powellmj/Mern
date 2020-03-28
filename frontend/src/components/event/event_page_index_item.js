@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 const EventIndexItem = (props) => {
 
   const handleClick = () => {
-    props.history.push({ pathname: `/groups/${props.event.group_id}/`});
+    props.history.push({ pathname: `/groups/${props.event.group_id}/events/${props.event._id}`});
   }
   return (
     <div onClick={() => { handleClick(props.event._id) }} className="event-page-index-item">
