@@ -71,7 +71,7 @@ class EventPageIndex extends React.Component {
       <div className="event-page-index-container">
         <div className="index-banner">
           <div className="index-banner-header" >Find your next simulation</div>
-          <div className="index-banner-text">{`${this.props.events.length}`} groups near you</div>
+          <div className="index-banner-text">{`${this.props.events.length}`} events near you</div>
         </div>
         <div className="index-search-pos">
           <div className="index-search">
