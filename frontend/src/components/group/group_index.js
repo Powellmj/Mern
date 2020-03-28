@@ -7,7 +7,7 @@ class GroupIndex extends React.Component {
     super(props)
 
     this.state = {
-      searchTerm: '',
+      searchTerm: this.props.location.state ? this.props.location.state.search : '',
       groups: []
     }
     this.filterGroups = this.filterGroups.bind(this);
@@ -19,7 +19,9 @@ class GroupIndex extends React.Component {
   }
 
   handleClick = () => {
-    this.props.history.push({ pathname: `/calendar/` });
+    this.props.history.push({ 
+      pathname: `/calendar/`,
+      state: { search: this.state.searchTerm } });
   }
 
   filterGroups() {

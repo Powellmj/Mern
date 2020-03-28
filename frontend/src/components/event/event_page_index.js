@@ -13,7 +13,7 @@ class EventPageIndex extends React.Component {
     this.state = {
       dates: {},
       date: new Date(),
-      searchTerm: ''
+      searchTerm: this.props.location.state ? this.props.location.state.search : '',
     }
 
     this.splitDates = this.splitDates.bind(this)
@@ -56,7 +56,9 @@ class EventPageIndex extends React.Component {
   }
 
   handleClick = () => {
-    this.props.history.push({ pathname: `/groups/` });
+    this.props.history.push({ 
+      pathname: `/groups/`,
+      state: { search: this.state.searchTerm }  });
   }
 
   setDate(date) {
