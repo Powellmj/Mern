@@ -15,7 +15,6 @@ class GroupShow extends React.Component {
   componentDidMount() {
     this.props.requestGroup(this.props.match.params.group_id)
     this.props.fetchAllGroupEvents(this.props.match.params.group_id)
-    debugger
   }
 
   handleOptions() {

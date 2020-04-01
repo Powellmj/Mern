@@ -1,3 +1,7 @@
+.splash-container {
+  height: 650px;
+}
+
 .splash-video {
   height: 460px;
   overflow: hidden;

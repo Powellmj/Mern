@@ -25,7 +25,7 @@ class NavBar extends React.Component {
     } else {
       return (
         <div className="navbar-right">
-          <div className="navbar-group">Start a new group</div>
+          <Link className="navbar-group" to={'/signup'}>Start a new group</Link>
           <Link className="navbar-link" to={'/login'}>Log in</Link>
           <Link className="navbar-link" to={'/signup'}>Sign up</Link>
         </div>

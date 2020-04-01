@@ -146,6 +146,7 @@
   background-color: rgb(247, 245, 245);
   width: 100%;
   height: fit-content;
+  padding-bottom: 50px;
 }
 
 .group-show-lower-left {

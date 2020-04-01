@@ -9,7 +9,7 @@ class Splash extends React.Component {
       password: 'hello123'
     }
     return (
-      <div>
+      <div className="splash-container">
         <div className="splash-video-filter"></div>
         <div className="splash-video">
           <video autoPlay loop>
